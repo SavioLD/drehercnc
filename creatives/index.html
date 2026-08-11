@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<title>Dreher CNC – Recruiting-Creatives (4:5 &amp; Story)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Lora:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+/* ==========================================================================
+   Dreher CNC – Anzeigen-Creatives für Meta (Feed 4:5 + Story 9:16)
+   Datengetrieben: unten im CREATIVES-Array stehen alle Motive.
+   Export als PNG:  node render.js
+   ========================================================================== */
+:root {
+  --teal: #00a99d;
+  --teal-deep: #00877e;
+  --teal-dark: #00544e;
+  --dark: #23302e;
+  --dark-900: #131c1b;
+  --sans: "Inter", "Liberation Sans", Arial, sans-serif;
+  --serif: "Lora", Georgia, "DejaVu Serif", serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #6b7472; font-family: var(--sans); padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
+
+.wrap { display: flex; flex-direction: column; gap: 10px; }
+.wrap > figcaption { color: #fff; font-size: 15px; font-weight: 700; letter-spacing: .02em; }
+.wrap > figcaption span { font-weight: 500; opacity: .75; }
+
+/* ---------- Grundfläche ---------- */
+.canvas {
+  position: relative; overflow: hidden;
+  width: 1080px; height: 1350px;           /* 4:5 Feed */
+  background: linear-gradient(158deg, #00b8a9 0%, var(--teal) 42%, var(--teal-dark) 100%);
+  color: #fff; isolation: isolate;
+}
+.canvas--story { height: 1920px; }         /* 9:16 Story/Reel */
+
+/* Foto: Graustufen + Türkis-Duoton → alle Motive wirken wie eine Kampagne.
+   Fehlt die Datei, bleibt die Markenfläche darunter sichtbar. */
+.shot {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  filter: grayscale(1) contrast(1.1) brightness(.82);
+}
+.duo { position: absolute; inset: 0; background: var(--teal); mix-blend-mode: color; opacity: .92; }
+.hatch {
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(115deg, rgba(255,255,255,.055) 0 3px, transparent 3px 13px);
+}
+/* Abdunkeln nach unten, damit die Headline immer sitzt */
+.scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(11,26,25,.62) 0%, rgba(11,26,25,.12) 26%, rgba(11,26,25,.72) 62%, rgba(11,26,25,.96) 100%);
+}
+.canvas--story .scrim {
+  background: linear-gradient(180deg, rgba(11,26,25,.66) 0%, rgba(11,26,25,.10) 22%, rgba(11,26,25,.80) 58%, rgba(11,26,25,.97) 100%);
+}
+
+/* ---------- Kopf ---------- */
+.head {
+  position: absolute; left: 72px; right: 72px; top: 64px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; z-index: 3;
+}
+.canvas--story .head { top: 250px; }        /* Safe Zone: Instagram-Kopfleiste */
+.logo { display: flex; align-items: center; gap: 14px; }
+.logo svg { width: 62px; height: 62px; color: #fff; }
+.logo b { font-size: 46px; font-weight: 900; letter-spacing: -.01em; }
+.chip {
+  font-size: 24px; font-weight: 700; letter-spacing: .04em;
+  padding: 12px 22px; border-radius: 999px;
+  background: rgba(255,255,255,.14); border: 2px solid rgba(255,255,255,.32);
+  white-space: nowrap;
+}
+
+/* ---------- Textblock ---------- */
+.body {
+  position: absolute; left: 72px; right: 72px; bottom: 72px; z-index: 3;
+}
+.canvas--story .body { bottom: 300px; }     /* Safe Zone: Swipe-/CTA-Bereich */
+
+.kicker {
+  display: inline-flex; align-items: center; gap: 16px;
+  font-size: 24px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase;
+  color: #9df0e7; margin-bottom: 26px;
+}
+.kicker::before { content: ""; width: 54px; height: 4px; background: var(--teal); border-radius: 3px; }
+
+h1 {
+  font-family: var(--sans);
+  font-size: 92px; line-height: .99; font-weight: 900; letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.canvas--story h1 { font-size: 84px; }
+h1 em { font-style: normal; color: #6fe4d6; }
+h1 .box {
+  display: inline-block; background: var(--teal); color: #fff;
+  padding: 0 16px 8px; border-radius: 10px; margin: 0 -4px;
+}
+
+.sub {
+  margin-top: 30px; font-size: 36px; line-height: 1.32; font-weight: 500;
+  color: #dff3f0; max-width: 22ch;
+}
+.canvas--story .sub { font-size: 36px; max-width: 24ch; }
+
+/* CTA + Fußzeile */
+.foot { margin-top: 46px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.cta {
+  display: inline-flex; align-items: center; gap: 16px;
+  background: #fff; color: #00524c;
+  font-size: 34px; font-weight: 800; padding: 26px 42px; border-radius: 999px;
+  box-shadow: 0 18px 40px -14px rgba(0,0,0,.55);
+}
+.cta svg { width: 30px; height: 30px; }
+.role {
+  font-size: 26px; font-weight: 700; color: #c7ece8;
+  border-left: 4px solid var(--teal); padding-left: 18px; line-height: 1.25;
+}
+.url {
+  display: block; margin-top: 26px;
+  font-size: 24px; font-weight: 700; color: rgba(255,255,255,.62); letter-spacing: .04em;
+}
+
+/* Große Typo-Variante (Motiv „Toleranz") */
+.figure {
+  font-family: var(--sans); font-weight: 900; letter-spacing: -.05em;
+  font-size: 210px; line-height: .86; color: #fff;
+  text-shadow: 0 20px 60px rgba(0,0,0,.45);
+}
+.canvas--story .figure { font-size: 240px; }
+.figure small { display: block; font-size: .22em; letter-spacing: .01em; color: #6fe4d6; margin-top: 14px; white-space: nowrap; }
+</style>
+</head>
+<body>
+<script>
+/* ==========================================================================
+   MOTIVE
+   photo  → Dateiname in creatives/fotos/ (fehlt sie, greift die Markenfläche)
+   v      → Landingpage-Variante für den Message-Match (index.html?v=…)
+   ========================================================================== */
+const JOB = "Zerspanungsmechaniker (m/w/d)";
+
+const CREATIVES = [
+  {
+    id: "toleranz",
+    v: "fit",
+    photo: "messtechnik-keyence.jpg",
+    chip: "Balgheim",
+    kicker: "Präzisionsdrehteile",
+    figure: "0,01 mm",
+    figureSub: "zwischen gut und Ausschuss",
+    h1: 'Manche nennen das <em>Pingeligkeit</em>.<br>Wir nennen es Beruf.',
+    sub: "",
+    cta: "In 60 Sekunden prüfen",
+  },
+  {
+    id: "team",
+    v: "team",
+    photo: "index-c200-team.jpg",
+    chip: "78582 Balgheim",
+    kicker: "Keine Personalnummer",
+    h1: '19 Kollegen.<br>Und bald <span class="box">20</span>?',
+    sub: "Bei 19 Leuten kennt man sich beim Vornamen – und weiß, wer was kann.",
+    cta: "Schau, ob's passt",
+  },
+  {
+    id: "index",
+    v: "fit",
+    photo: "index-c200-4d.jpg",
+    chip: "INDEX C200 · C200-4D",
+    kicker: "Maschinenpark",
+    h1: 'Deine nächste Maschine spricht <em>INDEX</em>.',
+    sub: "Wir haben sie. Jetzt fehlt nur noch jemand, der sie im Griff hat.",
+    cta: "60-Sekunden-Check",
+  },
+  {
+    id: "check",
+    v: "fit",
+    photo: "voreinstellgeraet.jpg",
+    chip: "ohne Anschreiben",
+    kicker: "Bewerben in 60 Sekunden",
+    h1: '5 Fragen.<br>Dann weißt <em>du</em>, ob es passt.',
+    sub: "Kein Motivationsschreiben, kein Lebenslauf-Zwang. Nur die Fragen, auf die es ankommt.",
+    cta: "Check starten",
+  },
+  {
+    id: "buerokratie",
+    v: "team",
+    photo: "werkzeugausgabe.jpg",
+    chip: "kurze Wege",
+    kicker: "Werkstatt statt Verwaltung",
+    h1: 'Werkzeug per Knopfdruck.<br>Freigabe-Zettel: <em>keiner</em>.',
+    sub: "Bei uns entscheidest du an der Maschine – statt drei Tage auf eine Unterschrift zu warten.",
+    cta: "Mehr in 60 Sekunden",
+  },
+  {
+    id: "region",
+    v: "region",
+    photo: "index-c200-team.jpg",
+    chip: "78582 Balgheim",
+    kicker: "Raum Tuttlingen · Spaichingen",
+    h1: 'Dein Arbeitsweg endet in <em>Balgheim</em>.',
+    sub: "Komplexe Drehteile und schwer zerspanbare Werkstoffe – statt Massenware am Band.",
+    cta: "60-Sekunden-Check",
+  },
+];
+
+const LOGO = `<svg viewBox="0 0 48 48" fill="none">
+  <circle cx="24" cy="24" r="19" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="98 22" stroke-dashoffset="-64" stroke-linecap="round"/>
+  <path d="M16.5 34V14l15 20V14" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>`;
+const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>';
+
+function canvas(c, format) {
+  const story = format === "story";
+  const head = `<div class="head">
+      <span class="logo">${LOGO}<b>DREHER</b></span>
+      <span class="chip">${c.chip}</span>
+    </div>`;
+
+  // Motiv „Toleranz“ führt mit der Zahl, alle anderen mit der Headline
+  const lead = c.figure
+    ? `<div class="figure">${c.figure}<small>${c.figureSub}</small></div>
+       <h1 style="font-size:${story ? 58 : 56}px;margin-top:34px">${c.h1}</h1>`
+    : `<h1>${c.h1}</h1>`;
+
+  return `<figure class="wrap">
+    <figcaption>${c.id} <span>· ${story ? "Story 1080×1920" : "Feed 1080×1350"} · ?v=${c.v}</span></figcaption>
+    <div class="canvas${story ? " canvas--story" : ""}" id="${c.id}-${format}">
+      <div class="shot" style="background-image:url('fotos/${c.photo}')"></div>
+      <div class="duo"></div>
+      <div class="hatch"></div>
+      <div class="scrim"></div>
+      ${head}
+      <div class="body">
+        <span class="kicker">${c.kicker}</span>
+        ${lead}
+        ${c.sub ? `<p class="sub">${c.sub}</p>` : ""}
+        <div class="foot">
+          <span class="cta">${c.cta}${ARROW}</span>
+          <span class="role">${JOB}<br>Dreher Präzisionsdrehteile GmbH</span>
+        </div>
+        <span class="url">dreher-cnc.de · Karriere</span>
+      </div>
+    </div>
+  </figure>`;
+}
+
+document.body.innerHTML = CREATIVES
+  .map((c) => canvas(c, "feed") + canvas(c, "story"))
+  .join("");
+</script>
+</body>
+</html>
