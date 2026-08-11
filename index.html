@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Karriere bei Dreher CNC – Zerspanungsmechaniker (m/w/d)</title>
+<meta name="description" content="Werde Teil der Dreher Präzisionsdrehteile GmbH – CNC-Dreh- und Frästeile aus Baden-Württemberg. Mini-Check und Bewerbung in unter 2 Minuten." />
+<meta name="robots" content="noindex" />
+
+<!-- Open Graph (für Meta Ads / Social) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Karriere bei Dreher CNC – Dreh- & Frästeile mit Leidenschaft" />
+<meta property="og:description" content="Wir suchen einen Zerspanungsmechaniker (m/w/d). Prüfe in 60 Sekunden, ob die Stelle zu dir passt, und bewirb dich direkt." />
+<meta property="og:locale" content="de_DE" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!-- Lora = Serif der Dreher-Website (Überschriften) · Inter = klare UI-Schrift (Formular/Fließtext) -->
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+/* ==========================================================================
+   Dreher Präzisionsdrehteile GmbH – Karriere-Funnel
+   Mini-Landingpage für Recruiting (Meta Ads → Bewerbung)
+   Design: industriell-clean · Dreher-CI (Türkis / Anthrazit / Weiß)
+   ========================================================================== */
+
+:root {
+  /* Farben – Dreher CI */
+  --bg: #ffffff;
+  --surface: #f3f8f7;
+  --surface-2: #e6f2f0;
+
+  --teal: #00a99d;          /* Dreher-Türkis (Primärfarbe) */
+  --teal-deep: #00877e;
+  --teal-dark: #006f68;
+  --teal-soft: #e2f5f2;
+
+  --dark: #3d3d3d;          /* Anthrazit – Kopfleiste der Dreher-Website */
+  --dark-800: #333333;
+  --dark-900: #262626;
+
+  --ink: #22302e;           /* Überschriften / Fließtext dunkel */
+  --text: #4a5654;
+  --muted: #798583;
+
+  --line: #e2ebe9;
+  --line-strong: #c8d8d5;
+
+  --ok: #16a34a;
+  --ok-soft: #e8f6ed;
+  --warn: #d97706;
+  --danger: #dc2626;
+
+  /* Typo */
+  --display: "Lora", Georgia, "Times New Roman", serif;
+  --body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Form */
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(34, 48, 46, .05), 0 2px 6px rgba(34, 48, 46, .06);
+  --shadow-md: 0 6px 16px -6px rgba(34, 48, 46, .14), 0 12px 32px -16px rgba(34, 48, 46, .18);
+  --shadow-lg: 0 18px 50px -18px rgba(34, 48, 46, .30);
+  --shadow-teal: 0 12px 28px -10px rgba(0, 169, 157, .55);
+
+  --maxw: 1140px;
+  --gutter: clamp(18px, 4vw, 40px);
+}
+
+/* Reset ---------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img, svg, video { display: block; max-width: 100%; height: auto; }
+a { color: var(--teal-deep); text-decoration: none; transition: color .15s ease; }
+a:hover { color: var(--teal); }
+button { font-family: inherit; cursor: pointer; }
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.16;
+  color: var(--ink);
+  margin: 0;
+}
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+[hidden] { display: none !important; }
+
+/* Layout helpers ------------------------------------------------------- */
+.shell { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: clamp(52px, 8vw, 104px); }
+.section--soft { background: var(--surface); }
+
+.section-head { max-width: 720px; margin: 0 auto clamp(32px, 5vw, 56px); text-align: center; }
+.section-head h2 { font-size: clamp(28px, 4vw, 42px); margin-bottom: 14px; }
+.section-head p { color: var(--muted); font-size: 18px; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--body);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  margin-bottom: 14px;
+}
+.eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--teal); border-radius: 2px; }
+.eyebrow--center { justify-content: center; }
+
+/* Logo ----------------------------------------------------------------- */
+/* Das Original-Logo kann hier 1:1 eingesetzt werden:
+   <img class="logo__img" src="logo.svg" alt="Dreher Präzisionsdrehteile GmbH" />
+   Solange keine Datei vorliegt, wird die Wortmarke unten nachgebaut (SVG + Text). */
+.logo { display: inline-flex; align-items: center; gap: 10px; }
+.logo__img { height: 40px; width: auto; display: block; }
+.logo__mark { width: 40px; height: 40px; flex: none; color: var(--teal); }
+.logo__name {
+  font-family: var(--body);
+  font-weight: 900;
+  font-size: 27px;
+  letter-spacing: -.01em;
+  color: var(--teal);
+  line-height: 1;
+}
+.logo--chip { background: #fff; padding: 9px 15px; border-radius: 12px; box-shadow: 0 6px 18px -8px rgba(0,0,0,.35); }
+.logo--chip .logo__mark { width: 32px; height: 32px; }
+.logo--chip .logo__name { font-size: 22px; }
+
+/* Buttons -------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 26px;
+  font-family: var(--body);
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  border: 2px solid transparent;
+  transition: transform .15s ease, box-shadow .2s ease, background .18s ease, color .18s ease;
+  white-space: nowrap;
+  text-align: center;
+}
+.btn svg { flex: none; }
+.btn--primary { background: var(--teal); color: #fff; box-shadow: var(--shadow-teal); }
+.btn--primary:hover { background: var(--teal-deep); color: #fff; transform: translateY(-2px); }
+.btn--ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+.btn--ghost:hover { border-color: var(--teal); color: var(--teal-deep); background: var(--teal-soft); }
+.btn--lg { padding: 18px 32px; font-size: 17px; }
+.btn--block { width: 100%; }
+
+/* Topbar --------------------------------------------------------------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,.94);
+  backdrop-filter: saturate(160%) blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar__inner { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 16px; }
+.topbar__cta { font-size: 14.5px; padding: 11px 20px; }
+.topbar__phone {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-weight: 700; color: var(--ink); font-size: 15px;
+}
+.topbar__phone svg { color: var(--teal); }
+
+/* Hero ----------------------------------------------------------------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 140% at 85% 0%, rgba(255,255,255,.20) 0%, rgba(255,255,255,0) 55%),
+    linear-gradient(155deg, #00b8a9 0%, var(--teal) 48%, #00817a 100%);
+  color: #effbf9;
+}
+.hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(115deg, rgba(255,255,255,.05) 0 2px, transparent 2px 9px);
+  opacity: .55;
+  pointer-events: none;
+}
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "intro funnel" "trust funnel";
+  column-gap: clamp(26px, 4vw, 56px);
+  row-gap: 20px;
+  align-items: start;
+  padding-block: clamp(34px, 5vw, 68px);
+}
+.hero__intro { grid-area: intro; }
+.funnel-wrap { grid-area: funnel; }
+.hero__trust { grid-area: trust; }
+.hero__badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.hero__badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 700; letter-spacing: .02em;
+  color: #ffffff;
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.28);
+  padding: 7px 13px; border-radius: var(--radius-pill);
+}
+.hero__badge svg { color: #bdf0ea; }
+.hero h1 {
+  color: #fff;
+  font-size: clamp(30px, 4.2vw, 48px);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.hero h1 em { color: #b9efe8; font-style: normal; }
+.hero__sub { font-family: var(--display); font-size: clamp(16px, 1.7vw, 19px); color: #ddf6f3; max-width: 42ch; margin-bottom: 0; }
+.hero__trust { display: grid; gap: 11px; align-self: start; }
+.hero__trust li {
+  display: flex; gap: 11px; align-items: flex-start;
+  color: #eafaf8; font-size: 15px; font-weight: 500; line-height: 1.45;
+}
+.hero__trust svg { flex: none; color: #b9efe8; margin-top: 2px; }
+
+/* Trust-Strip ---------------------------------------------------------- */
+.trust { background: var(--dark); }
+.trust__inner {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: rgba(255,255,255,.12);
+  border-radius: var(--radius); overflow: hidden;
+  margin-top: -1px;
+}
+.trust__cell { background: var(--dark); padding: 22px 18px; text-align: center; }
+.trust__cell b { display: block; font-family: var(--display); font-weight: 700; color: #fff; font-size: clamp(19px, 2.8vw, 26px); }
+.trust__cell span { color: #b6c1bf; font-size: 13px; }
+
+/* Money-Hook (hervorgehobene Kachel) ----------------------------------- */
+.money { padding-block: clamp(26px, 4vw, 44px); background: var(--bg); }
+.money__card {
+  max-width: 800px; margin-inline: auto;
+  display: flex; align-items: center; gap: clamp(18px, 3vw, 30px);
+  background: linear-gradient(120deg, var(--teal-soft) 0%, #ffffff 75%);
+  border: 2px solid var(--teal);
+  border-radius: var(--radius-lg);
+  padding: clamp(22px, 3vw, 32px) clamp(24px, 3.6vw, 40px);
+  box-shadow: 0 16px 40px -18px rgba(0,169,157,.55);
+}
+.money__ic {
+  flex: none; width: 74px; height: 74px; border-radius: 20px;
+  display: grid; place-items: center;
+  background: var(--teal); color: #fff;
+  box-shadow: 0 10px 24px -8px rgba(0,169,157,.7);
+}
+.money__title { font-family: var(--display); font-weight: 700; font-size: clamp(22px, 3.2vw, 32px); color: var(--ink); line-height: 1.16; }
+.money__sub { color: var(--text); font-size: clamp(15px, 1.8vw, 18px); margin-top: 7px; }
+
+/* Job-Details (Aufgaben / Profil / Benefits) --------------------------- */
+.cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.col-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 28px 26px;
+  box-shadow: var(--shadow-sm);
+}
+.col-card__ic {
+  width: 46px; height: 46px; border-radius: 13px;
+  display: grid; place-items: center; margin-bottom: 16px;
+  background: var(--teal-soft); color: var(--teal-deep);
+}
+.col-card h3 { font-size: 20px; margin-bottom: 14px; }
+.ticks li {
+  position: relative; padding-left: 30px; margin-bottom: 11px;
+  color: var(--text); font-size: 15.5px; line-height: 1.5;
+}
+.ticks li::before {
+  content: ""; position: absolute; left: 0; top: 3px;
+  width: 19px; height: 19px; border-radius: 50%;
+  background: var(--teal-soft);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2300877e' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: center;
+}
+.cols-cta { margin-top: clamp(32px, 5vw, 48px); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.cols-cta__hint { color: var(--muted); font-size: 14px; max-width: 44ch; }
+
+/* ======================================================================
+   FUNNEL (Mini-Check + Bewerbung)
+   ====================================================================== */
+.funnel-wrap { width: 100%; }
+.funnel {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.funnel__head {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 12px 20px; background: var(--dark); color: #fff;
+}
+.funnel__head-title { display: inline-flex; align-items: center; gap: 9px; font-weight: 700; font-size: 14.5px; }
+.funnel__head-title svg { color: #4fd3c6; flex: none; }
+.funnel__head-hint { font-size: 12.5px; color: #b6c1bf; font-weight: 600; white-space: nowrap; }
+.funnel__reassure { text-align: center; margin-top: 14px; font-size: 13.5px; color: #d6f4f0; }
+.funnel__bar { height: 6px; background: var(--surface-2); }
+.funnel__bar-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--teal-deep), #43cfc2);
+  transition: width .35s cubic-bezier(.4,0,.2,1);
+}
+.funnel__body { padding: clamp(26px, 4vw, 44px); }
+
+/* Step animation */
+.step { animation: stepIn .32s cubic-bezier(.16,1,.3,1); }
+@keyframes stepIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+.step__count {
+  font-family: var(--body);
+  font-size: 13px; font-weight: 700; letter-spacing: .04em;
+  color: var(--teal-deep); text-transform: uppercase; margin-bottom: 10px;
+}
+.step__q { font-size: clamp(22px, 3.2vw, 29px); margin-bottom: 8px; }
+.step__help { color: var(--muted); font-size: 15.5px; margin-bottom: 26px; }
+
+/* Optionen */
+.options { display: grid; gap: 12px; margin-bottom: 8px; }
+.option {
+  display: flex; align-items: center; gap: 14px;
+  width: 100%; text-align: left;
+  padding: 17px 18px;
+  background: var(--bg);
+  border: 2px solid var(--line-strong);
+  border-radius: var(--radius);
+  font-size: 16.5px; font-weight: 600; color: var(--ink);
+  transition: all .15s ease;
+}
+.option:hover { border-color: var(--teal); background: var(--teal-soft); transform: translateY(-1px); }
+.option.is-selected { border-color: var(--teal); background: var(--teal-soft); }
+.option__dot {
+  flex: none; width: 24px; height: 24px; border-radius: 50%;
+  border: 2px solid var(--line-strong); position: relative; transition: all .15s ease;
+}
+.option:hover .option__dot, .option.is-selected .option__dot { border-color: var(--teal); }
+.option.is-selected .option__dot { background: var(--teal); }
+.option.is-selected .option__dot::after {
+  content: ""; position: absolute; inset: 5px;
+  background: #fff; border-radius: 50%;
+}
+.option__label { flex: 1; }
+
+/* Formular -------------------------------------------------------------- */
+.match-chip {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 8px 15px; border-radius: var(--radius-pill);
+  font-size: 14px; font-weight: 700; margin-bottom: 22px;
+}
+.match-chip svg { flex: none; }
+.match-chip--top { background: var(--ok-soft); color: #15803d; }
+.match-chip--good { background: var(--teal-soft); color: var(--teal-deep); }
+.match-chip--ok { background: #fff4e5; color: var(--warn); }
+.pay-note { margin: -6px 0 20px; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+
+/* Kontakt-Präferenz (Anruf / WhatsApp) */
+.segmented { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.seg {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  min-height: 52px; padding: 12px 14px;
+  border: 1.5px solid var(--line-strong); border-radius: var(--radius-sm);
+  background: var(--bg); color: var(--ink); font-size: 15.5px; font-weight: 600;
+  transition: border-color .15s ease, background .15s ease, color .15s ease;
+}
+.seg svg { color: var(--muted); flex: none; }
+.seg:hover { border-color: var(--teal); }
+.seg.is-active { border-color: var(--teal); background: var(--teal-soft); color: var(--teal-deep); }
+.seg.is-active svg { color: var(--teal-deep); }
+
+/* Sticky Apply-CTA (nur mobil) */
+.apply-sticky {
+  position: fixed; left: 14px; right: 14px; bottom: 14px; z-index: 60;
+  display: none; align-items: center; justify-content: center; gap: 10px;
+  background: var(--teal); color: #fff; font-weight: 700; font-size: 16.5px;
+  padding: 16px 22px; border-radius: var(--radius-pill);
+  box-shadow: 0 14px 32px -8px rgba(0,169,157,.75);
+}
+.apply-sticky:hover { color: #fff; }
+@keyframes stickyIn { from { transform: translateY(22px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { display: flex; flex-direction: column; gap: 7px; }
+.field.full { grid-column: 1 / -1; }
+.field label { font-size: 14px; font-weight: 700; color: var(--ink); }
+.field input, .field select, .field textarea {
+  font-family: inherit; font-size: 16px; color: var(--ink);
+  padding: 13px 15px;
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  transition: border-color .15s ease, box-shadow .15s ease;
+  width: 100%;
+}
+.field textarea { min-height: 92px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: none; border-color: var(--teal);
+  box-shadow: 0 0 0 3px var(--teal-soft);
+}
+.field input::placeholder, .field textarea::placeholder { color: #9aa8a6; }
+.field label .opt { color: var(--muted); font-weight: 500; }
+
+/* Datei-Upload (Lebenslauf) */
+.file-field {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 15px;
+  border: 1.5px dashed var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  cursor: pointer;
+  transition: border-color .15s ease, background .15s ease;
+}
+.file-field:hover { border-color: var(--teal); background: var(--teal-soft); }
+.file-field.has-file { border-style: solid; border-color: var(--teal); background: var(--teal-soft); }
+.file-field input[type="file"] { display: none; }
+.file-field__ic {
+  flex: none; width: 38px; height: 38px; border-radius: 10px;
+  display: grid; place-items: center;
+  background: #fff; color: var(--teal-deep); border: 1px solid var(--line);
+}
+.file-field__txt { font-size: 14.5px; color: var(--text); font-weight: 600; word-break: break-word; }
+
+.consent {
+  grid-column: 1 / -1;
+  display: flex; gap: 11px; align-items: flex-start;
+  font-size: 13.5px; color: var(--muted); line-height: 1.5;
+  margin-top: 4px;
+}
+.consent input { margin-top: 3px; width: 18px; height: 18px; flex: none; accent-color: var(--teal); }
+
+.form-error {
+  grid-column: 1 / -1;
+  display: none;
+  background: #fdecec; color: var(--danger);
+  border: 1px solid #f5c2c2; border-radius: var(--radius-sm);
+  padding: 11px 14px; font-size: 14px; font-weight: 600;
+}
+.form-error.is-visible { display: block; }
+
+/* Funnel-Navigation */
+.funnel__nav {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-top: 26px;
+}
+.funnel__back {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: none; border: none; color: var(--muted);
+  font-size: 15px; font-weight: 600; padding: 8px 4px;
+}
+.funnel__back:hover { color: var(--ink); }
+.funnel__back[hidden] { visibility: hidden; }
+.funnel__hint { font-size: 13px; color: var(--muted); }
+
+/* Success -------------------------------------------------------------- */
+.success { text-align: center; padding: clamp(8px, 2vw, 22px) 0; }
+.success__ic {
+  width: 76px; height: 76px; border-radius: 50%;
+  background: var(--teal-soft); color: var(--teal-deep);
+  display: grid; place-items: center; margin: 0 auto 22px;
+  animation: pop .4s cubic-bezier(.2,1.4,.4,1);
+}
+@keyframes pop { from { transform: scale(.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.success h3 { font-size: clamp(24px, 3.4vw, 32px); margin-bottom: 12px; }
+.success p { color: var(--text); max-width: 44ch; margin: 0 auto 10px; }
+.success__steps {
+  display: grid; gap: 10px; max-width: 380px;
+  margin: 26px auto 0; text-align: left;
+}
+.success__step {
+  display: flex; gap: 12px; align-items: center;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 13px 16px;
+  font-size: 14.5px; color: var(--ink); font-weight: 600;
+}
+.success__step span {
+  flex: none; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--teal); color: #fff; display: grid; place-items: center;
+  font-size: 13px; font-weight: 800;
+}
+
+/* Absage (Knockout) ---------------------------------------------------- */
+.reject { text-align: center; padding: clamp(8px, 2vw, 20px) 0; }
+.reject__ic {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--surface-2); color: var(--muted);
+  display: grid; place-items: center; margin: 0 auto 20px;
+}
+.reject h3 { font-size: clamp(22px, 3vw, 28px); margin-bottom: 12px; }
+.reject p { color: var(--text); max-width: 46ch; margin: 0 auto 10px; }
+.reject__soft { color: var(--muted); font-size: 15px; }
+.reject__back { margin: 18px auto 0; }
+
+/* Spinner */
+.spinner {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 2.5px solid rgba(255,255,255,.45); border-top-color: #fff;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Job-Picker (mehrere aktive Stellen) ---------------------------------- */
+.picker { display: grid; gap: 16px; max-width: 720px; margin-inline: auto; }
+.picker__card {
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  background: var(--bg); border: 1px solid var(--line);
+  border-radius: var(--radius-lg); padding: 22px 24px;
+  box-shadow: var(--shadow-sm); transition: all .15s ease;
+}
+.picker__card:hover { border-color: var(--teal); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.picker__card h3 { font-size: 20px; margin-bottom: 4px; }
+.picker__card p { color: var(--muted); font-size: 14.5px; }
+.picker__arrow { flex: none; color: var(--teal); }
+
+/* Footer --------------------------------------------------------------- */
+.footer { background: var(--dark-900); color: #c3cecc; padding-block: clamp(44px, 6vw, 68px); }
+.footer__grid {
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 36px;
+  padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,.10);
+}
+.footer__brand p { margin-top: 16px; font-size: 14.5px; color: #a8b4b2; max-width: 38ch; }
+.footer h4 { font-family: var(--body); color: #fff; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 16px; }
+.footer ul li { margin-bottom: 9px; font-size: 14.5px; }
+.footer ul li:empty { display: none; }
+.footer a { color: #c3cecc; }
+.footer a:hover { color: #fff; }
+.footer__bottom {
+  display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: space-between;
+  padding-top: 24px; font-size: 13px; color: #8b9997;
+}
+
+/* Responsive ----------------------------------------------------------- */
+@media (max-width: 960px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    grid-template-areas: "intro" "funnel" "trust";
+    row-gap: 20px;
+  }
+  .hero__intro, .funnel-wrap, .hero__trust { max-width: 640px; width: 100%; margin-inline: auto; }
+  .cols { grid-template-columns: 1fr; }
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .topbar__cta, .topbar__phone { display: none; }
+  .topbar__inner { height: 58px; }
+  .topbar .logo__mark { width: 32px; height: 32px; }
+  .topbar .logo__name { font-size: 22px; }
+
+  /* Hero kompakt → Frage 1 möglichst weit oben */
+  .hero__inner { padding-block: 14px 22px; row-gap: 14px; }
+  .hero__badges { margin-bottom: 10px; gap: 6px; }
+  .hero__badge { font-size: 12px; padding: 6px 11px; }
+  .hero h1 { font-size: clamp(23px, 6.6vw, 29px); margin-bottom: 9px; }
+  .hero__sub {
+    font-size: 15px; line-height: 1.5;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .hero__trust li { font-size: 14px; }
+
+  /* Funnel-Karte kompakter */
+  .funnel__head { padding: 10px 16px; }
+  .funnel__head-title { font-size: 13.5px; }
+  .funnel__body { padding: 20px 18px; }
+  .step__count { margin-bottom: 8px; }
+  .step__q { font-size: 20.5px; }
+  .step__help { margin-bottom: 14px; }
+  .options { gap: 10px; }
+  .option { padding: 14px 15px; font-size: 16px; }
+
+  .trust__inner { grid-template-columns: 1fr 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .footer__grid { grid-template-columns: 1fr; gap: 28px; }
+  .money__card { flex-direction: column; text-align: center; gap: 16px; }
+
+  /* Sticky-CTA nur auf Mobil einblenden + Platz schaffen */
+  .apply-sticky.is-visible { display: flex; animation: stickyIn .25s ease; }
+  body.has-sticky { padding-bottom: 84px; }
+  .funnel__back { padding: 12px 6px; font-size: 15.5px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOPBAR
+============================================================= -->
+<header class="topbar">
+  <div class="shell topbar__inner">
+    <a href="index.html" class="logo" aria-label="Dreher Präzisionsdrehteile GmbH">
+      <!-- Platzhalter-Wortmarke im Dreher-Stil. Sobald das Original-SVG vorliegt:
+           dieses <svg> + <span> durch <img class="logo__img" src="logo.svg" alt="Dreher"> ersetzen. -->
+      <svg class="logo__mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <circle cx="24" cy="24" r="19" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="98 22" stroke-dashoffset="-64" stroke-linecap="round"/>
+        <path d="M16.5 34V14l15 20V14" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <span class="logo__name">DREHER</span>
+    </a>
+    <a href="#" class="topbar__phone" id="topPhone" hidden>
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span id="topPhoneTxt"></span>
+    </a>
+    <a href="#bewerbung" class="btn btn--primary topbar__cta">Jetzt bewerben</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================
+     JOB-PICKER  (nur sichtbar bei mehreren aktiven Stellen)
+============================================================= -->
+<section class="section" id="pickerSection" hidden>
+  <div class="shell">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--center">Karriere bei Dreher</span>
+      <h2>Offene Stellen</h2>
+      <p>Wähle die Position, die zu dir passt – und bewirb dich in unter 2 Minuten.</p>
+    </div>
+    <div class="picker" id="pickerList"><!-- JS --></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SINGLE-JOB-ANSICHT
+============================================================= -->
+<div id="jobView" hidden>
+
+  <!-- HERO + MINI-CHECK (sofort aktiv) -->
+  <section class="hero">
+    <div class="shell hero__inner">
+      <div class="hero__intro">
+        <div class="hero__badges" id="heroBadges"><!-- JS --></div>
+        <h1 id="heroTitle"><!-- JS --></h1>
+        <p class="hero__sub" id="heroSub"><!-- JS --></p>
+      </div>
+
+      <div class="funnel-wrap" id="bewerbung">
+        <div class="funnel">
+          <div class="funnel__head">
+            <span class="funnel__head-title">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>
+              Mini-Check zur Stelle
+            </span>
+            <span class="funnel__head-hint">ca. 60 Sek.</span>
+          </div>
+          <div class="funnel__bar"><div class="funnel__bar-fill" id="funnelBar"></div></div>
+          <div class="funnel__body" id="funnelBody"><!-- JS --></div>
+        </div>
+        <p class="funnel__reassure">100 % unverbindlich · kein langes Anschreiben nötig</p>
+      </div>
+
+      <ul class="hero__trust">
+        <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Präzisionsdrehteile &amp; Frästeile – Made in Germany</li>
+        <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Überschaubares Team: 19 Kolleginnen und Kollegen, kurze Wege</li>
+        <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Komplexe Drehteile statt Massenware – Abwechslung an der Maschine</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TRUST-STRIP -->
+  <section class="trust">
+    <div class="shell">
+      <div class="trust__inner">
+        <div class="trust__cell"><b>19 Kollegen</b><span>familiäres Team</span></div>
+        <div class="trust__cell"><b>INDEX &amp; Co.</b><span>CNC-Maschinenpark</span></div>
+        <div class="trust__cell"><b>Made in Germany</b><span>Fertigung in BW</span></div>
+        <div class="trust__cell"><b>Komplexe Teile</b><span>statt Massenware</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MONEY-HOOK -->
+  <section class="money" id="moneyHook" hidden>
+    <div class="shell">
+      <div class="money__card">
+        <span class="money__ic">
+          <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13"/><path d="M12 8S9.5 3 7 4.5 12 8 12 8zM12 8s2.5-5 5-3.5S12 8 12 8z"/></svg>
+        </span>
+        <div class="money__text">
+          <div class="money__title" id="moneyTitle"><!-- JS --></div>
+          <div class="money__sub" id="moneySub"><!-- JS --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOB-DETAILS -->
+  <section class="section section--soft" id="stelle">
+    <div class="shell">
+      <div class="section-head">
+        <span class="eyebrow eyebrow--center">Die Stelle im Detail</span>
+        <h2 id="detailsTitle"><!-- JS --></h2>
+        <p id="detailsLead"><!-- JS --></p>
+      </div>
+      <div class="cols">
+        <div class="col-card">
+          <div class="col-card__ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.6l-6.4 6.4a2 2 0 1 0 2.8 2.8l6.4-6.4a4 4 0 0 0 5.6-5.6l-2.8 2.8-2-2 2.8-2.8z"/></svg></div>
+          <h3>Deine Aufgaben</h3>
+          <ul class="ticks" id="colTasks"><!-- JS --></ul>
+        </div>
+        <div class="col-card">
+          <div class="col-card__ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <h3>Dein Profil</h3>
+          <ul class="ticks" id="colProfile"><!-- JS --></ul>
+        </div>
+        <div class="col-card">
+          <div class="col-card__ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z"/></svg></div>
+          <h3>Wir bieten</h3>
+          <ul class="ticks" id="colBenefits"><!-- JS --></ul>
+        </div>
+      </div>
+      <div class="cols-cta">
+        <a href="#bewerbung" class="btn btn--primary btn--lg">
+          Jetzt bewerben – in 60 Sekunden
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <span class="cols-cta__hint">Kurzer Mini-Check vorab – damit beide Seiten direkt wissen, ob es passt.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky Apply-CTA (nur mobil, bis der Funnel gestartet ist) -->
+  <a href="#bewerbung" class="apply-sticky" id="applySticky" aria-label="Jetzt bewerben">
+    In 60 Sekunden bewerben
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  </a>
+
+</div><!-- /#jobView -->
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+============================================================= -->
+<footer class="footer">
+  <div class="shell">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <span class="logo logo--chip">
+          <svg class="logo__mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="24" cy="24" r="19" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="98 22" stroke-dashoffset="-64" stroke-linecap="round"/>
+            <path d="M16.5 34V14l15 20V14" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <span class="logo__name">DREHER</span>
+        </span>
+        <p>Dreher Präzisionsdrehteile GmbH steht für „Made in Germany“ sowie Innovation und Flexibilität in der Präzisionsdrehteile-Fertigung – CNC-Dreh- und Frästeile in bester Qualität.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li>Dreher Präzisionsdrehteile GmbH</li>
+          <!-- TODO: echte Anschrift + Telefonnummer eintragen (siehe CONFIG.address / CONFIG.phone) -->
+          <li id="footAddr"></li>
+          <li id="footPhone"></li>
+          <li><a href="https://www.dreher-cnc.de" target="_blank" rel="noopener">www.dreher-cnc.de</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <ul>
+          <!-- TODO: exakte URLs zu Impressum / Datenschutz von dreher-cnc.de eintragen -->
+          <li><a href="https://www.dreher-cnc.de/impressum" target="_blank" rel="noopener">Impressum</a></li>
+          <li><a href="https://www.dreher-cnc.de/datenschutz" target="_blank" rel="noopener">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="year">2026</span> Dreher Präzisionsdrehteile GmbH · Alle Rechte vorbehalten.</span>
+      <span>Recruiting-Seite umgesetzt von <a href="https://laendle-digital.com" target="_blank" rel="noopener">Ländle Digital</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ==========================================================================
+   Dreher CNC – Karriere-Funnel
+   Daten-getriebene Mini-Landingpage: Mini-Check (Vorqualifizierung) + Bewerbung.
+
+   ►► NEUE STELLE HINZUFÜGEN:
+      Einfach unten im JOBS-Objekt einen weiteren Eintrag nach demselben
+      Muster wie "zerspanungsmechaniker" anlegen und "active: true" setzen.
+      - Ist nur EINE Stelle aktiv  → die Seite lädt direkt diese Stelle.
+      - Sind MEHRERE aktiv         → es erscheint automatisch eine Auswahl.
+      - Direktlink je Stelle:        index.html?job=<slug>
+
+   ►► VORFILTERN (Knockout):
+      Eine Antwort-Option mit "ko: true" disqualifiziert sofort → der/die
+      Bewerber/in landet auf einem freundlichen Absage-Screen und wird NICHT
+      als Lead gesendet. Optional "koReason" für den Begründungstext.
+      Aktuell als Knockout gesetzt: Deutsch unter B1 und fehlende Ausbildung
+      als Zerspanungsmechaniker/in bzw. Industriemechaniker/in.
+   ========================================================================== */
+
+/* ----------------------------------------------------------------------
+   KONFIGURATION
+---------------------------------------------------------------------- */
+const CONFIG = {
+  // Wohin gehen die Bewerbungen per E-Mail? (formsubmit.co – Empfänger frei
+  // änderbar, z. B. später auf eine Dreher-HR-Adresse umstellen)
+  leadEmail: "savio.roeckle@wave2network.de",
+
+  /* ---- LeadTable-Anbindung ------------------------------------------
+     Generischer LeadTable-Webhook. Der Token in der URL enthält bereits
+     Tabelle, Kunde und Agentur – der Lead landet also direkt in:
+       https://portal.lead-table.com/customer/6a71f059661192ffc3215ed6/table/6a71f064a9408391921a95d1/leads
+
+     Der Lead geht als JSON an diese URL (Content-Type text/plain, damit kein
+     CORS-Preflight nötig ist – LeadTable parst den Body trotzdem als JSON).
+     Zusätzlich läuft jede Bewerbung per E-Mail raus (siehe leadEmail), damit
+     nie ein Lead verloren geht.
+
+     ►► Neue Tabelle/neuer Kunde? Einfach die Webhook-URL aus LeadTable
+        (Tabelle → Einstellungen → Webhook) hier ersetzen.
+     ------------------------------------------------------------------- */
+  leadWebhookUrl: "https://api-v2.lead-table.com/api/webhook/generic/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0YWJsZUlEIjoiNmE3MWYwNjRhOTQwODM5MTkyMWE5NWQxIiwiY3VzdG9tZXJJRCI6IjZhNzFmMDU5NjYxMTkyZmZjMzIxNWVkNiIsImFnZW5jeUlEIjoiNjliZDc3NzVlNGQxN2IzOGVkNjUzZDE2IiwiaWF0IjoxNzg1ODUyMDA0fQ.hIFMut48aMHa2uFuoZij9aKdX_ubqOF6LElhE7gD0io",
+  leadTable: {
+    customerId: "6a71f059661192ffc3215ed6",
+    tableId: "6a71f064a9408391921a95d1",
+    portalUrl: "https://portal.lead-table.com/customer/6a71f059661192ffc3215ed6/table/6a71f064a9408391921a95d1/leads",
+  },
+
+  // TODO: echte Kontaktdaten von Dreher eintragen – leer = wird ausgeblendet
+  phone: "",            // z. B. "07424 / 123 456"
+  address: "",          // z. B. "Musterstraße 1 · 78600 Kolbingen"
+
+  quelle: "Dreher CNC Karriere-Funnel",
+  maxUploadMB: 8, // max. Dateigröße für Lebenslauf-Upload
+};
+
+/* ----------------------------------------------------------------------
+   STELLEN-REGISTRY
+
+   HINWEIS: Die mit „TODO“ markierten Punkte bitte vor dem Livegang mit
+   Dreher abstimmen (Standort, Arbeitszeitmodell, Zusatzleistungen).
+---------------------------------------------------------------------- */
+const JOBS = {
+
+  /* ===== Zerspanungsmechaniker (m/w/d) ===== */
+  zerspanungsmechaniker: {
+    active: true,
+    title: "Zerspanungsmechaniker",
+    gender: "(m/w/d)",
+    location: "Baden-Württemberg", // TODO: exakten Standort eintragen
+    type: "Vollzeit",
+    heroBadges: ["CNC-Drehteile", "INDEX-Drehautomaten", "19er-Team"],
+
+    // Attraktivitäts-Hook ohne konkrete Zahlen – bewusst zurückhaltend
+    // formuliert. TODO: durch echte Zusatzleistungen ersetzen, sobald
+    // von Dreher bestätigt (z. B. Urlaubsgeld, Prämie, Zuschläge).
+    moneyHook: {
+      title: "Faire, leistungsgerechte Bezahlung",
+      sub: "Dein Gehalt besprechen wir persönlich – passend zu deiner Erfahrung.",
+    },
+
+    heroSub:
+      "CNC-Drehteile mit Leidenschaft – im überschaubaren Team einer echten Präzisions-Dreherei.",
+
+    // Message-Match je Creative (gewählt über ?v=, Default: fit).
+    defaultVariant: "fit",
+    heroVariants: {
+      fit:    { h1: "Präzision statt",           h1b: "Massenware.",        sub: "Zerspanungsmechaniker (m/w/d) · CNC-Drehteile · INDEX" },
+      team:   { h1: "19 Kollegen.",              h1b: "Ein Team.",          sub: "Kurze Wege statt Konzern – Zerspanungsmechaniker (m/w/d)" },
+      region: { h1: "Zerspaner aus der Region?", h1b: "Komm zu Dreher.",    sub: "Komplexe Drehteile · schwer zerspanbare Werkstoffe" },
+    },
+
+    intro:
+      "Du magst komplexe Teile, enge Toleranzen und Maschinen, die du selbst im Griff hast? Bei uns fertigst du Präzisionsdrehteile vom Einzelteil bis zur Serie – in einem Team, in dem man sich kennt, und mit Kollegen, die anpacken statt zu verwalten.",
+
+    tasks: [
+      "Rüsten, Einrichten und Bedienen unserer CNC-Drehautomaten (u. a. INDEX)",
+      "Fertigung von Präzisionsdrehteilen nach Zeichnung – vom Einzelteil bis zur Serie",
+      "Programmanpassungen und Optimierung laufender Fertigungsprozesse",
+      "Werkerselbstkontrolle: Messen und Prüfen mit gängigen Messmitteln",
+      "Wartung und Pflege deiner Maschinen",
+    ],
+
+    profile: [
+      "Abgeschlossene Ausbildung als Zerspanungsmechaniker/in oder Industriemechaniker/in",
+      "Erfahrung an CNC-Drehmaschinen – idealerweise an INDEX-Drehautomaten",
+      "Sicheres Lesen technischer Zeichnungen",
+      "Deutschkenntnisse mindestens auf Niveau B1",
+      "Führerschein Klasse B",
+      "Selbstständige, genaue und zuverlässige Arbeitsweise",
+      "Teamgeist und ausgeprägtes Qualitätsbewusstsein",
+    ],
+
+    // TODO: mit Dreher abgleichen und ggf. um echte Zusatzleistungen ergänzen.
+    benefits: [
+      "Familiäres Team mit 19 Kolleginnen und Kollegen – kurze Wege, schnelle Entscheidungen",
+      "Moderner CNC-Maschinenpark",
+      "Regelmäßige Schulungen und Weiterbildung",
+      "Abwechslung statt Massenware: komplexe Drehteile und schwer zerspanbare Werkstoffe",
+      "Offenheit für neue Fertigungsverfahren – deine Ideen sind willkommen",
+      "Sicherer Arbeitsplatz bei einem inhabergeführten Mittelständler",
+      "Faire, leistungsgerechte Bezahlung",
+    ],
+
+    /* Vorqualifizierungs-Fragen.
+       scored:true  → fließt in den Match-Score ein (Optionen tragen "score" 0–2)
+       scored:false → reine Info (z. B. Führerschein)
+       option.ko:true → Knockout (sofortige Absage, kein Lead)               */
+    questions: [
+      {
+        short: "Ausbildung",
+        q: "Hast du eine abgeschlossene Ausbildung im Metallbereich?",
+        help: "Wir suchen gezielt Zerspanungsmechaniker/innen oder Industriemechaniker/innen.",
+        scored: true,
+        key: true,
+        options: [
+          { label: "Ja – Zerspanungsmechaniker/in", score: 2 },
+          { label: "Ja – Industriemechaniker/in", score: 2 },
+          { label: "Ja – andere Metall-Ausbildung (z. B. Werkzeugmechaniker/in)", score: 1 },
+          { label: "Nein, keine abgeschlossene Ausbildung im Metallbereich", score: 0, ko: true, koReason: "eine abgeschlossene Ausbildung als Zerspanungsmechaniker/in oder Industriemechaniker/in" },
+        ],
+      },
+      {
+        short: "Deutschkenntnisse",
+        q: "Wie gut sprichst du Deutsch?",
+        help: "Für Zeichnungen, Einweisungen und die Abstimmung im Team brauchst du mindestens Niveau B1.",
+        scored: true,
+        key: true,
+        critical: true,
+        options: [
+          { label: "Muttersprache oder fließend (C1–C2)", score: 2 },
+          { label: "Gut – ich verstehe und spreche sicher (B2)", score: 2 },
+          { label: "Mittel – ich komme im Arbeitsalltag zurecht (B1)", score: 1 },
+          { label: "Nur Grundkenntnisse (A1–A2)", score: 0, ko: true, koReason: "Deutschkenntnisse auf mindestens Niveau B1" },
+        ],
+      },
+      {
+        short: "Index-Erfahrung",
+        q: "Hast du schon an INDEX-Drehautomaten gearbeitet?",
+        help: "Kein Muss – wenn du CNC-Drehen kannst, schulen wir dich auf unseren Maschinen ein.",
+        scored: true,
+        key: true,
+        options: [
+          { label: "Ja – INDEX rüsten und programmieren", score: 2 },
+          { label: "Ja – INDEX bedienen", score: 2 },
+          { label: "Nein, aber an anderen CNC-Drehmaschinen (z. B. Traub, DMG, Citizen)", score: 1 },
+          { label: "Noch keine Erfahrung an CNC-Drehmaschinen", score: 0 },
+        ],
+      },
+      {
+        short: "Rüsten & Programmieren",
+        q: "Kannst du Maschinen selbstständig rüsten und einfahren?",
+        help: "Bei uns arbeitest du eigenverantwortlich an deiner Maschine.",
+        scored: true,
+        options: [
+          { label: "Ja, inklusive Programmanpassungen an der Steuerung", score: 2 },
+          { label: "Rüsten ja – Programmieren mit Unterstützung", score: 1 },
+          { label: "Noch nicht – ich bediene bisher", score: 0 },
+        ],
+      },
+      {
+        short: "Führerschein",
+        q: "Hast du einen Führerschein (Klasse B)?",
+        help: "Unser Standort ist mit dem Auto am besten zu erreichen.",
+        scored: false,
+        options: [
+          { label: "Ja, Führerschein und eigenes Fahrzeug", score: 0 },
+          { label: "Führerschein ja, kein eigenes Fahrzeug", score: 0 },
+          { label: "Nein", score: 0 },
+        ],
+      },
+    ],
+  },
+
+  /* ===== VORLAGE für weitere Stellen – auf active:true setzen & ausfüllen =====
+  cnc-fraeser: {
+    active: false,
+    title: "CNC-Fräser",
+    gender: "(m/w/d)",
+    location: "…",
+    type: "Vollzeit",
+    heroSub: "…",
+    intro: "…",
+    tasks: ["…"], profile: ["…"], benefits: ["…"],
+    questions: [
+      { short:"…", q:"…", help:"…", scored:true, options:[
+        { label:"…", score:2 },
+        { label:"…", score:1 },
+        { label:"…", score:0, ko:true, koReason:"…" } ] },
+    ],
+  },
+  ============================================================================ */
+};
+
+/* ----------------------------------------------------------------------
+   HELFER
+---------------------------------------------------------------------- */
+const $ = (sel, root = document) => root.querySelector(sel);
+const esc = (s) =>
+  String(s).replace(/[&<>"']/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
+  );
+const ICON = {
+  arrow: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>',
+  check: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg>',
+  back: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M11 19l-7-7 7-7"/></svg>',
+  upload: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>',
+};
+
+/* ----------------------------------------------------------------------
+   STATE
+---------------------------------------------------------------------- */
+const state = { jobKey: null, job: null, pos: 1, answers: {}, rejected: false, koReason: "", koFromPos: 1, variant: "fit", started: false, _updateSticky: null };
+
+/* ----------------------------------------------------------------------
+   ROUTING / BOOT
+---------------------------------------------------------------------- */
+function activeJobKeys() {
+  return Object.keys(JOBS).filter((k) => JOBS[k].active);
+}
+
+function boot() {
+  $("#year") && ($("#year").textContent = new Date().getFullYear());
+  renderContact();
+
+  const active = activeJobKeys();
+  const param = new URLSearchParams(location.search).get("job");
+
+  if (param && JOBS[param] && JOBS[param].active) return loadJob(param);
+  if (active.length === 1) return loadJob(active[0]);
+  if (active.length > 1) return showPicker(active);
+  return showPicker([]);
+}
+
+// Telefon/Anschrift nur anzeigen, wenn in CONFIG hinterlegt
+function renderContact() {
+  if (CONFIG.phone) {
+    const tel = "tel:" + CONFIG.phone.replace(/[^\d+]/g, "");
+    $("#topPhone").href = tel;
+    $("#topPhoneTxt").textContent = CONFIG.phone;
+    $("#topPhone").hidden = false;
+    $("#footPhone").innerHTML = `<a href="${esc(tel)}">${esc(CONFIG.phone)}</a>`;
+  }
+  if (CONFIG.address) $("#footAddr").textContent = CONFIG.address;
+}
+
+function showPicker(keys) {
+  $("#jobView").hidden = true;
+  $("#pickerSection").hidden = false;
+  $("#pickerList").innerHTML = keys.length
+    ? keys
+        .map((k) => {
+          const j = JOBS[k];
+          return `<a class="picker__card" href="?job=${encodeURIComponent(k)}">
+            <div>
+              <h3>${esc(j.title)} ${esc(j.gender)}</h3>
+              <p>${esc(j.type)} · ${esc(j.location)}</p>
+            </div>
+            <span class="picker__arrow">${ICON.arrow}</span>
+          </a>`;
+        })
+        .join("")
+    : `<p style="text-align:center;color:var(--muted)">Aktuell sind keine Stellen ausgeschrieben. Initiativbewerbungen sind jederzeit willkommen.</p>`;
+}
+
+function loadJob(key) {
+  state.jobKey = key;
+  state.job = JOBS[key];
+  // Message-Match-Variante aus ?v= (Default: job.defaultVariant oder "fit")
+  const vParam = new URLSearchParams(location.search).get("v");
+  state.variant = (state.job.heroVariants && state.job.heroVariants[vParam])
+    ? vParam
+    : (state.job.defaultVariant || "fit");
+  state.pos = 1; // Funnel startet direkt bei Frage 1 (sofort aktiv)
+  state.answers = {};
+  state.rejected = false;
+  state.started = false;
+
+  $("#pickerSection").hidden = true;
+  $("#jobView").hidden = false;
+
+  renderJobChrome();
+  renderFunnel();
+  attachCtas();
+  setupStickyCta();
+  document.title = `${state.job.title} ${state.job.gender} – Karriere bei Dreher CNC`;
+}
+
+/* ----------------------------------------------------------------------
+   HERO + DETAILS rendern
+---------------------------------------------------------------------- */
+function renderJobChrome() {
+  const j = state.job;
+
+  const dot = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" stroke="none"><circle cx="12" cy="12" r="5"/></svg>';
+  $("#heroBadges").innerHTML = (j.heroBadges || [])
+    .map((txt) => `<span class="hero__badge">${dot}${esc(txt)}</span>`)
+    .join("");
+
+  // Hero-Headline/Sub aus der gewählten Variante (Message-Match), sonst Fallback
+  const hv = (j.heroVariants && j.heroVariants[state.variant]) || null;
+  if (hv) {
+    $("#heroTitle").innerHTML = `${esc(hv.h1)}${hv.h1b ? ` <em>${esc(hv.h1b)}</em>` : ""}`;
+    $("#heroSub").textContent = hv.sub;
+  } else {
+    $("#heroTitle").innerHTML = `${esc(j.title)} <em>${esc(j.gender)}</em>`;
+    $("#heroSub").textContent = j.heroSub;
+  }
+
+  // Money-Kachel
+  if (j.moneyHook) {
+    $("#moneyTitle").textContent = j.moneyHook.title;
+    $("#moneySub").textContent = j.moneyHook.sub;
+    $("#moneyHook").hidden = false;
+  } else {
+    $("#moneyHook").hidden = true;
+  }
+
+  $("#detailsTitle").textContent = `Das erwartet dich als ${j.title}`;
+  $("#detailsLead").textContent = j.intro;
+
+  const li = (arr) => arr.map((t) => `<li>${esc(t)}</li>`).join("");
+  $("#colTasks").innerHTML = li(j.tasks);
+  $("#colProfile").innerHTML = li(j.profile);
+  $("#colBenefits").innerHTML = li(j.benefits);
+}
+
+function attachCtas() {
+  // Hero-/Details-/Sticky-CTAs scrollen sanft zum Funnel (kein Reset des Fortschritts)
+  document.querySelectorAll('a[href="#bewerbung"]').forEach((a) => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      ensureVisible(true);
+    });
+  });
+}
+
+// Sticky „Jetzt bewerben"-Button (mobil): sichtbar, solange der Funnel nicht
+// im Bild ist UND noch nicht gestartet wurde.
+function setupStickyCta() {
+  const sticky = $("#applySticky");
+  const card = $(".funnel");
+  if (!sticky || !card) return;
+  const update = () => {
+    const show = !state.started && !sticky._inView;
+    sticky.classList.toggle("is-visible", show);
+    document.body.classList.toggle("has-sticky", show);
+  };
+  state._updateSticky = update;
+  if ("IntersectionObserver" in window) {
+    sticky._inView = true;
+    new IntersectionObserver((entries) => {
+      sticky._inView = entries.some((en) => en.isIntersecting);
+      update();
+    }, { threshold: 0.12 }).observe(card);
+  }
+}
+
+/* ----------------------------------------------------------------------
+   FUNNEL-ENGINE
+---------------------------------------------------------------------- */
+function totalPos() {
+  // fragen(1..N) → formular(N+1) → success(N+2)
+  return state.job.questions.length + 2;
+}
+function setBar(pct) { $("#funnelBar").style.width = pct + "%"; }
+function setProgress() { setBar((state.pos / totalPos()) * 100); }
+
+function ensureVisible(force) {
+  const card = $(".funnel");
+  if (!card) return;
+  const top = card.getBoundingClientRect().top;
+  if (force || top < 64 || top > window.innerHeight * 0.55) {
+    window.scrollTo({ top: card.getBoundingClientRect().top + window.scrollY - 90, behavior: "smooth" });
+  }
+}
+
+function renderFunnel() {
+  const j = state.job;
+  const N = j.questions.length;
+  const body = $("#funnelBody");
+
+  if (state.rejected) {
+    setBar(100);
+    body.innerHTML = renderReject();
+    bindReject();
+    return;
+  }
+  setProgress();
+
+  if (state.pos >= 1 && state.pos <= N) {
+    body.innerHTML = renderQuestion(j.questions[state.pos - 1], state.pos, N);
+    bindQuestion();
+    return;
+  }
+  if (state.pos === N + 1) {
+    body.innerHTML = renderForm();
+    bindForm();
+    return;
+  }
+  body.innerHTML = renderSuccess();
+}
+
+function goTo(pos) {
+  state.pos = pos;
+  renderFunnel();
+  // Bei größeren Schritten (Formular/Success) sicherstellen, dass die Karte sichtbar ist
+  const N = state.job.questions.length;
+  if (pos >= N + 1) ensureVisible(false);
+}
+
+/* ----- Frage ----- */
+function renderQuestion(question, posNum, N) {
+  const opts = question.options
+    .map(
+      (o, i) => `<button type="button" class="option" data-i="${i}">
+        <span class="option__dot"></span>
+        <span class="option__label">${esc(o.label)}</span>
+      </button>`
+    )
+    .join("");
+
+  return `<div class="step">
+    <div class="step__count">Frage ${posNum} von ${N}</div>
+    <h3 class="step__q">${esc(question.q)}</h3>
+    ${question.help ? `<p class="step__help">${esc(question.help)}</p>` : ""}
+    <div class="options" id="opts">${opts}</div>
+    <div class="funnel__nav">
+      <button type="button" class="funnel__back" data-back ${posNum === 1 ? "hidden" : ""}>${ICON.back} Zurück</button>
+      <span class="funnel__hint">Tippe auf eine Antwort</span>
+    </div>
+  </div>`;
+}
+
+function bindQuestion() {
+  const q = state.job.questions[state.pos - 1];
+  const saved = state.answers[q.short];
+
+  $("#opts")
+    .querySelectorAll(".option")
+    .forEach((btn) => {
+      const i = +btn.dataset.i;
+      if (saved && saved.label === q.options[i].label) btn.classList.add("is-selected");
+      btn.addEventListener("click", () => {
+        const opt = q.options[i];
+        state.answers[q.short] = { label: opt.label, score: opt.score, scored: q.scored };
+        if (!state.started) { state.started = true; if (state._updateSticky) state._updateSticky(); }
+        $("#opts").querySelectorAll(".option").forEach((b) => b.classList.remove("is-selected"));
+        btn.classList.add("is-selected");
+
+        // Knockout → sofortige Absage
+        if (opt.ko) {
+          state.koReason = opt.koReason || "die nötigen Voraussetzungen";
+          state.koFromPos = state.pos;
+          setTimeout(() => { state.rejected = true; renderFunnel(); ensureVisible(false); }, 230);
+          return;
+        }
+        setTimeout(() => goTo(state.pos + 1), 230);
+      });
+    });
+
+  bindNav();
+}
+
+/* ----- Absage (Knockout) ----- */
+function renderReject() {
+  const j = state.job;
+  return `<div class="step reject">
+    <div class="reject__ic">
+      <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z"/><path d="M9 12h6"/></svg>
+    </div>
+    <h3>Vielen Dank für dein Interesse!</h3>
+    <p>Diesmal hat es leider noch nicht ganz gepasst: Für die Stelle als <strong>${esc(j.title)}</strong> setzen wir <strong>${esc(state.koReason)}</strong> voraus.</p>
+    <p class="reject__soft">Vielleicht klappt es zu einem späteren Zeitpunkt oder bei einer anderen Position – schau gerne wieder vorbei.</p>
+    <button type="button" class="funnel__back reject__back" data-fix>${ICON.back} Antwort ändern</button>
+  </div>`;
+}
+function bindReject() {
+  const fix = $("[data-fix]");
+  if (fix) fix.addEventListener("click", () => {
+    state.rejected = false;
+    state.pos = state.koFromPos;
+    renderFunnel();
+  });
+}
+
+/* ----- Match-Berechnung ----- */
+function computeMatch() {
+  const j = state.job;
+  let score = 0, max = 0, criticalZero = false;
+  j.questions.forEach((q) => {
+    if (!q.scored) return;
+    max += 2;
+    const a = state.answers[q.short];
+    const s = a ? a.score : 0;
+    score += s;
+    if (q.critical && s === 0) criticalZero = true;
+  });
+  const ratio = max ? score / max : 0;
+  let level, cls;
+  if (criticalZero) { level = "Bedingt geeignet"; cls = "ok"; }
+  else if (ratio >= 0.8) { level = "Top-Match"; cls = "top"; }
+  else if (ratio >= 0.55) { level = "Guter Match"; cls = "good"; }
+  else { level = "Entwicklungs-Kandidat"; cls = "ok"; }
+  return { score, max, level, cls, text: `${level} (${score}/${max})` };
+}
+
+/* ----- Formular ----- */
+function renderForm() {
+  const m = computeMatch();
+  return `<div class="step">
+    <div class="step__count">Letzter Schritt</div>
+    <h3 class="step__q">Fast geschafft – deine Kontaktdaten</h3>
+    <p class="step__help">Wir melden uns telefonisch, per WhatsApp oder E-Mail bei dir.</p>
+
+    <span class="match-chip match-chip--${m.cls}">${ICON.check} Dein Ergebnis: ${esc(m.level)}</span>
+    <p class="pay-note">Dein genaues Gehalt besprechen wir persönlich – fair und abhängig von deiner Erfahrung.</p>
+
+    <form id="appForm" novalidate>
+      <div class="form-grid">
+        <div class="field">
+          <label for="fName">Name *</label>
+          <input id="fName" name="Name" type="text" required autocomplete="name" placeholder="Vor- und Nachname" />
+        </div>
+        <div class="field">
+          <label for="fPhone">Telefon / WhatsApp *</label>
+          <input id="fPhone" name="Telefon" type="tel" required autocomplete="tel" inputmode="tel" placeholder="z. B. 0170 1234567" />
+        </div>
+        <div class="field full">
+          <label>Wie erreichen wir dich am liebsten?</label>
+          <div class="segmented" id="contactPref" role="group" aria-label="Bevorzugter Kontakt">
+            <button type="button" class="seg is-active" data-val="Anruf">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Anruf
+            </button>
+            <button type="button" class="seg" data-val="WhatsApp">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5.6A8.38 8.38 0 0 1 4 11.5 8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg>
+              WhatsApp
+            </button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="fPlz">PLZ *</label>
+          <input id="fPlz" name="PLZ" type="text" required autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="z. B. 78600" />
+        </div>
+        <div class="field">
+          <label for="fEmail">E-Mail <span class="opt">(optional)</span></label>
+          <input id="fEmail" name="E-Mail" type="email" autocomplete="email" inputmode="email" placeholder="name@beispiel.de" />
+        </div>
+        <div class="field full">
+          <label for="fStart">Frühester Start</label>
+          <select id="fStart" name="Frühester Start">
+            <option>Ab sofort</option>
+            <option>In 1 Monat</option>
+            <option>In 2–3 Monaten</option>
+            <option>Nach Absprache</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="fMsg">Nachricht <span class="opt">(optional)</span></label>
+          <textarea id="fMsg" name="Nachricht" placeholder="Gibt es etwas, das wir vorab wissen sollten?"></textarea>
+        </div>
+        <div class="field full">
+          <label for="fCv">Lebenslauf / Unterlagen <span class="opt">(optional)</span></label>
+          <label class="file-field" id="fileLabel">
+            <input id="fCv" name="Lebenslauf" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+            <span class="file-field__ic">${ICON.upload}</span>
+            <span class="file-field__txt" id="fileTxt">PDF, Word oder Bild – max. ${CONFIG.maxUploadMB} MB</span>
+          </label>
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" id="fConsent" required />
+          <span>Ich bin mit der Verarbeitung meiner Daten zur Bearbeitung meiner Bewerbung einverstanden. Es gilt die <a href="https://www.dreher-cnc.de/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span>
+        </label>
+
+        <div class="form-error" id="formError"></div>
+      </div>
+
+      <div class="funnel__nav">
+        <button type="button" class="funnel__back" data-back>${ICON.back} Zurück</button>
+        <button type="submit" class="btn btn--primary btn--lg" id="submitBtn">Bewerbung absenden ${ICON.arrow}</button>
+      </div>
+    </form>
+  </div>`;
+}
+
+function bindForm() {
+  bindNav();
+  // Kontakt-Präferenz (Anruf/WhatsApp) umschalten
+  const seg = $("#contactPref");
+  if (seg) seg.querySelectorAll(".seg").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      seg.querySelectorAll(".seg").forEach((b) => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+    });
+  });
+  const file = $("#fCv");
+  file.addEventListener("change", () => {
+    const f = file.files[0];
+    const txt = $("#fileTxt");
+    if (!f) { txt.textContent = `PDF, Word oder Bild – max. ${CONFIG.maxUploadMB} MB`; $("#fileLabel").classList.remove("has-file"); return; }
+    txt.textContent = `${f.name} (${(f.size / 1024 / 1024).toFixed(1)} MB)`;
+    $("#fileLabel").classList.add("has-file");
+  });
+  $("#appForm").addEventListener("submit", onSubmit);
+}
+
+async function onSubmit(e) {
+  e.preventDefault();
+  const errBox = $("#formError");
+  errBox.classList.remove("is-visible");
+
+  const name = $("#fName").value.trim();
+  const phone = $("#fPhone").value.trim();
+  const email = $("#fEmail").value.trim();
+  const plz = $("#fPlz").value.trim();
+  const consent = $("#fConsent").checked;
+  const file = $("#fCv").files[0] || null;
+  const segActive = $("#contactPref .seg.is-active");
+  const contactPref = segActive ? segActive.dataset.val : "Anruf";
+
+  const fail = (msg) => { errBox.textContent = msg; errBox.classList.add("is-visible"); };
+
+  if (!name) return fail("Bitte gib deinen Namen an.");
+  if (phone.replace(/\D/g, "").length < 6) return fail("Bitte gib eine gültige Telefonnummer an.");
+  if (!/^\d{5}$/.test(plz)) return fail("Bitte gib deine 5-stellige PLZ an.");
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail("Bitte gib eine gültige E-Mail-Adresse an (oder lass das Feld leer).");
+  if (!consent) return fail("Bitte stimme der Datenverarbeitung zu.");
+  if (file && file.size > CONFIG.maxUploadMB * 1024 * 1024)
+    return fail(`Die Datei ist zu groß (max. ${CONFIG.maxUploadMB} MB). Bitte sende größere Dateien per E-Mail.`);
+
+  const btn = $("#submitBtn");
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Wird gesendet …';
+
+  const data = { name, phone, email, plz, contactPref };
+  const ok = await sendLead(data, file);
+  if (ok) {
+    goTo(totalPos());
+  } else {
+    btn.disabled = false;
+    btn.innerHTML = "Bewerbung absenden " + ICON.arrow;
+    fail("Senden hat nicht geklappt. Bitte versuche es erneut oder schreib uns direkt.");
+    const a = document.createElement("a");
+    a.href = mailtoFallback(data);
+    a.className = "btn btn--ghost btn--block";
+    a.style.marginTop = "12px";
+    a.textContent = "Stattdessen per E-Mail bewerben";
+    errBox.after(a);
+  }
+}
+
+// Einheitliches Lead-Objekt – Basis für E-Mail, Webhook (LeadTable) und Mailto.
+function buildLead({ name, phone, email, plz, contactPref }) {
+  const j = state.job;
+  const m = computeMatch();
+  const lead = {
+    "Stelle": `${j.title} ${j.gender}`,
+    "Name": name,
+    "Telefon": phone,
+    "Kontakt bevorzugt": contactPref || "Anruf",
+    "E-Mail": email || "—",
+    "PLZ": plz,
+    "Frühester Start": $("#fStart").value,
+  };
+  const msg = $("#fMsg").value.trim();
+  if (msg) lead["Nachricht"] = msg;
+  lead["Qualifikation"] = m.text;
+  j.questions.forEach((q) => {
+    lead["Frage: " + q.short] = (state.answers[q.short] || {}).label || "—";
+  });
+  lead["Variante"] = state.variant; // Attribution: welches Creative/?v=
+  lead["Quelle"] = CONFIG.quelle;
+  return lead;
+}
+
+function collectPayload(data) {
+  const j = state.job;
+  const fd = new FormData();
+  fd.append("_subject", `Neue Bewerbung: ${j.title} ${j.gender} (Dreher CNC)`);
+  fd.append("_template", "table");
+  fd.append("_captcha", "false");
+  if (data.email) fd.append("_replyto", data.email);
+  fd.append("_honey", "");
+  Object.entries(buildLead(data)).forEach(([k, v]) => fd.append(k, v));
+  return fd;
+}
+
+// LeadTable: Lead zusätzlich als JSON an den Webhook schicken (best effort).
+// text/plain vermeidet einen CORS-Preflight; Empfänger (LeadTable/Make/Zapier)
+// parsen den Body trotzdem als JSON.
+function postWebhook(data) {
+  const url = CONFIG.leadWebhookUrl;
+  if (!url) return;
+  const j = state.job;
+  const lt = CONFIG.leadTable || {};
+  const lead = buildLead(data);
+  // Deutsche Klartext-Keys (für Lesbarkeit) + Standard-Aliase (für automatisches
+  // Field-Mapping in LeadTable/CRM).
+  const payload = Object.assign({}, lead, {
+    name: data.name,
+    phone: data.phone,
+    email: data.email || "",
+    zip: data.plz,
+    preferred_contact: data.contactPref || "Anruf",
+    message: lead["Nachricht"] || "",
+    job: `${j.title} ${j.gender}`,
+    variant: state.variant,
+    qualification: lead["Qualifikation"],
+    source: CONFIG.quelle,
+    // Ziel-Tabelle in LeadTable (aus dem Portal-Link)
+    customer_id: lt.customerId || "",
+    table_id: lt.tableId || "",
+    leadtable_customer_id: lt.customerId || "",
+    leadtable_table_id: lt.tableId || "",
+  });
+  // Antworten zusätzlich mit sauberen Keys (ohne Umlaute/Sonderzeichen), damit sie
+  // sich in LeadTable leicht als eigene Spalten anlegen/mappen lassen.
+  const deumlaut = (s) => String(s).replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss");
+  const slug = (s) => deumlaut(s).toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
+  j.questions.forEach((q) => {
+    const v = (state.answers[q.short] || {}).label || "";
+    payload[q.short] = v;                     // lesbarer Key = exakt der Feldname zum Anlegen in LeadTable
+    payload["antwort_" + slug(q.short)] = v;  // ASCII-Fallback
+  });
+  payload["Match-Score"] = lead["Qualifikation"];
+  payload["match_score"] = lead["Qualifikation"];
+  payload["Wunsch-Kontakt"] = data.contactPref || "Anruf";
+  payload["Kampagne"] = state.variant;
+  // Namensdopplung vermeiden: LeadTables Name-Feld sammelt alle Namens-Keys ein.
+  // Nur der eine `name`-Key soll rein – die deutsche Dublette entfernen.
+  delete payload["Name"];
+  try {
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=UTF-8" },
+      body: JSON.stringify(payload),
+      keepalive: true,
+    }).catch(() => {});
+  } catch (e) { /* best effort */ }
+}
+
+async function sendLead(data, file) {
+  postWebhook(data); // parallel, blockiert die E-Mail-Zustellung nicht
+  const fd = collectPayload(data);
+  const url = `https://formsubmit.co/${CONFIG.leadEmail}`;
+
+  // Mit Datei → Standard-Endpoint (Datei wird als Anhang verschickt).
+  // mode:'no-cors' → Antwort ist opak, Versand erfolgt aber serverseitig.
+  if (file) {
+    fd.append("Lebenslauf", file, file.name);
+    try {
+      await fetch(url, { method: "POST", body: fd, mode: "no-cors" });
+      return true;
+    } catch (err) {
+      console.warn("Lead-Versand (mit Datei) fehlgeschlagen:", err);
+      return false;
+    }
+  }
+
+  // Ohne Datei → AJAX-Endpoint (zuverlässige Erfolgsmeldung)
+  try {
+    const res = await fetch(`https://formsubmit.co/ajax/${CONFIG.leadEmail}`, {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: fd,
+    });
+    return res.ok;
+  } catch (err) {
+    console.warn("Lead-Versand fehlgeschlagen:", err);
+    return false;
+  }
+}
+
+function mailtoFallback(data) {
+  const j = state.job;
+  const lead = buildLead(data);
+  const lines = [`Bewerbung: ${j.title} ${j.gender}`, ``]
+    .concat(Object.entries(lead).map(([k, v]) => `${k}: ${v}`));
+  return `mailto:${CONFIG.leadEmail}?subject=${encodeURIComponent(
+    "Bewerbung " + j.title + " " + j.gender
+  )}&body=${encodeURIComponent(lines.join("\n"))}`;
+}
+
+/* ----- Success ----- */
+function renderSuccess() {
+  return `<div class="step success">
+    <div class="success__ic">
+      <svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>
+    </div>
+    <h3>Danke für deine Bewerbung!</h3>
+    <p>Wir haben deine Daten erhalten und melden uns innerhalb von <strong>2 Werktagen</strong> persönlich bei dir.</p>
+    <div class="success__steps">
+      <div class="success__step"><span>1</span> Wir prüfen deine Angaben</div>
+      <div class="success__step"><span>2</span> Kurzes Kennenlern-Telefonat</div>
+      <div class="success__step"><span>3</span> Persönliches Gespräch bei Dreher</div>
+    </div>
+  </div>`;
+}
+
+/* ----- Navigation ----- */
+function bindNav() {
+  const back = $("[data-back]");
+  if (back) back.addEventListener("click", () => goTo(Math.max(1, state.pos - 1)));
+}
+
+/* ----------------------------------------------------------------------
+   GO
+---------------------------------------------------------------------- */
+document.addEventListener("DOMContentLoaded", boot);
+
+</script>
+<!-- WEBUNDO Analytics -->
+<script src="https://analytics.laendle-digital.com/tracker.js" data-website-id="dreher-cnc" defer></script>
+</body>
+</html>
