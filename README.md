@@ -103,7 +103,7 @@ Für unterschiedliche Anzeigen-Creatives lässt sich die Headline über `?v=` st
 |------|----------|
 | `?v=fit` (Standard) | „Präzision statt **Massenware**.“ |
 | `?v=team` | „19 Kollegen. **Ein Team.**“ |
-| `?v=region` | „Zerspaner aus der Region? **Komm zu Dreher.**“ |
+| `?v=region` | „Zerspaner aus der Region? **Komm nach Balgheim.**“ |
 
 Die gewählte Variante wird als `Kampagne` / `variant` mit dem Lead übertragen –
 so ist auswertbar, welches Creative die Bewerbung gebracht hat.
