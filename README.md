@@ -63,17 +63,20 @@ const CONFIG = {
   leadEmail:      "…",   // Empfänger der Bewerbungs-Mail
   leadWebhookUrl: "…",   // LeadTable-Webhook
   leadTable:      { … }, // Kunden-/Tabellen-ID (Referenz)
-  phone:          "",    // erscheint in Kopfzeile + Footer, leer = ausgeblendet
-  address:        "",    // erscheint im Footer, leer = ausgeblendet
+  phone:          "07424 / 50 10 21",
+  address:        "Steigäcker 10 · 78582 Balgheim",
+  contactEmail:   "info@dreher-cnc.de",
 };
 ```
 
+Kontaktdaten stammen aus dem Impressum von dreher-cnc.de. Sie erscheinen in der
+Kopfzeile (Telefon) und im Footer; leere Felder werden automatisch ausgeblendet.
+
 ### Noch offen (TODO im Code markiert)
 
-- [ ] **Telefonnummer und Anschrift** von Dreher eintragen (`CONFIG.phone`, `CONFIG.address`)
-- [ ] **Exakten Standort** der Stelle statt „Baden-Württemberg“ (`JOBS.zerspanungsmechaniker.location`)
-- [ ] **Impressum-/Datenschutz-Links** auf die echten URLs von dreher-cnc.de zeigen lassen
 - [ ] **Benefits und Money-Hook** mit Dreher abstimmen (aktuell bewusst ohne konkrete Zahlen/Zusagen)
+- [ ] **Impressum-/Datenschutz-Slugs** einmal gegenprüfen – verlinkt ist
+      `dreher-cnc.de/impressum/` bzw. `/datenschutz/`
 - [ ] **Original-Logo** einsetzen – aktuell ist die Wortmarke als SVG nachgebaut.
       Sobald die Datei vorliegt: `logo.svg` ins Repo legen und das `<svg>` + `<span class="logo__name">`
       durch `<img class="logo__img" src="logo.svg" alt="Dreher Präzisionsdrehteile GmbH">` ersetzen
