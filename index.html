@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="no-js">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Karriere bei Dreher CNC – Zerspanungsmechaniker (m/w/d)</title>
 <meta name="description" content="Werde Teil der Dreher Präzisionsdrehteile GmbH – CNC-Dreh- und Frästeile aus Baden-Württemberg. Mini-Check und Bewerbung in unter 2 Minuten." />
 <meta name="robots" content="noindex" />
+<meta name="theme-color" content="#00a99d" />
+<meta name="format-detection" content="telephone=no" />
+<script>document.documentElement.className = "js";</script>
 
 <!-- Open Graph (für Meta Ads / Social) -->
 <meta property="og:type" content="website" />
@@ -72,7 +75,11 @@
 
 /* Reset ---------------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent; /* eigenes Touch-Feedback statt grauem Kasten */
+}
 body {
   margin: 0;
   font-family: var(--body);
@@ -165,6 +172,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .btn--ghost:hover { border-color: var(--teal); color: var(--teal-deep); background: var(--teal-soft); }
 .btn--lg { padding: 18px 32px; font-size: 17px; }
 .btn--block { width: 100%; }
+.btn:active { transform: translateY(0) scale(.98); }
+.btn:disabled { opacity: .75; cursor: default; transform: none; }
 
 /* Topbar --------------------------------------------------------------- */
 .topbar {
@@ -352,7 +361,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   transition: all .15s ease;
 }
 .option:hover { border-color: var(--teal); background: var(--teal-soft); transform: translateY(-1px); }
+.option:active { transform: scale(.985); background: var(--teal-soft); border-color: var(--teal); }
 .option.is-selected { border-color: var(--teal); background: var(--teal-soft); }
+/* kurzes Bestätigungs-Blitzen beim Antippen (Antwort sitzt) */
+.option.is-flash { animation: optFlash .23s ease; }
+@keyframes optFlash {
+  0%   { box-shadow: 0 0 0 0 rgba(0,169,157,.42); }
+  100% { box-shadow: 0 0 0 12px rgba(0,169,157,0); }
+}
 .option__dot {
   flex: none; width: 24px; height: 24px; border-radius: 50%;
   border: 2px solid var(--line-strong); position: relative; transition: all .15s ease;
@@ -393,7 +409,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 /* Sticky Apply-CTA (nur mobil) */
 .apply-sticky {
-  position: fixed; left: 14px; right: 14px; bottom: 14px; z-index: 60;
+  position: fixed; left: 14px; right: 14px; z-index: 60;
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
   display: none; align-items: center; justify-content: center; gap: 10px;
   background: var(--teal); color: #fff; font-weight: 700; font-size: 16.5px;
   padding: 16px 22px; border-radius: var(--radius-pill);
@@ -442,6 +459,53 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   background: #fff; color: var(--teal-deep); border: 1px solid var(--line);
 }
 .file-field__txt { font-size: 14.5px; color: var(--text); font-weight: 600; word-break: break-word; }
+
+/* Optionale Angaben einklappbar – hält das Formular kurz */
+.more {
+  grid-column: 1 / -1;
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  overflow: hidden;
+}
+.more > summary {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 15px; min-height: 52px;
+  font-size: 15px; font-weight: 700; color: var(--ink);
+  cursor: pointer; list-style: none; user-select: none;
+}
+.more > summary::-webkit-details-marker { display: none; }
+.more > summary::after {
+  content: ""; margin-left: auto; width: 10px; height: 10px;
+  border-right: 2.4px solid var(--muted); border-bottom: 2.4px solid var(--muted);
+  transform: rotate(45deg) translateY(-2px); transition: transform .2s ease;
+}
+.more[open] > summary::after { transform: rotate(-135deg) translateY(-2px); }
+.more > summary:hover { color: var(--teal-deep); }
+.more__ic { flex: none; color: var(--teal); display: grid; place-items: center; }
+.more__body { display: grid; gap: 16px; padding: 4px 15px 16px; }
+.more__hint { font-size: 13px; color: var(--muted); font-weight: 500; }
+
+/* Vertrauens-Zeile + Anruf-Alternative direkt am Absende-Button */
+.form-trust {
+  grid-column: 1 / -1;
+  display: flex; gap: 9px; align-items: flex-start;
+  font-size: 13px; color: var(--muted); line-height: 1.45;
+}
+.form-trust svg { flex: none; color: var(--teal); margin-top: 1px; }
+.call-alt {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-top: 16px; padding: 13px 16px;
+  border: 1.5px solid var(--line); border-radius: var(--radius-sm);
+  background: var(--surface);
+  font-size: 15px; font-weight: 600; color: var(--text);
+}
+.call-alt a { font-weight: 800; white-space: nowrap; }
+.call-alt svg { flex: none; color: var(--teal); }
+
+/* Feldfehler direkt am Feld statt nur oben */
+.field.has-error input, .field.has-error select { border-color: var(--danger); background: #fffafa; }
+.field__err { font-size: 12.5px; font-weight: 600; color: var(--danger); }
 
 .consent {
   grid-column: 1 / -1;
@@ -551,6 +615,26 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   padding-top: 24px; font-size: 13px; color: #8b9997;
 }
 
+/* Scroll-Reveal (nur mit JS, damit ohne JS nichts unsichtbar bleibt) ---- */
+.js .reveal { opacity: 0; transform: translateY(16px); }
+.js .reveal.is-in {
+  opacity: 1; transform: none;
+  transition: opacity .55s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1);
+}
+.js .reveal--d1.is-in { transition-delay: .07s; }
+.js .reveal--d2.is-in { transition-delay: .14s; }
+
+/* Nutzer mit reduzierter Bewegung: keine Animationen, aber alles sichtbar */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .js .reveal { opacity: 1; transform: none; }
+}
+
 /* Responsive ----------------------------------------------------------- */
 @media (max-width: 960px) {
   .hero__inner {
@@ -564,31 +648,38 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 @media (max-width: 720px) {
   body { font-size: 16px; }
-  .topbar__cta, .topbar__phone { display: none; }
-  .topbar__inner { height: 58px; }
-  .topbar .logo__mark { width: 32px; height: 32px; }
-  .topbar .logo__name { font-size: 22px; }
+  .topbar__cta { display: none; }
+  .topbar__inner { height: 54px; }
+  .topbar .logo__mark { width: 30px; height: 30px; }
+  .topbar .logo__name { font-size: 21px; }
+  /* Anrufen bleibt mobil sichtbar – für diese Zielgruppe der zweitwichtigste Weg */
+  .topbar__phone { font-size: 14.5px; gap: 6px; padding: 6px 0; }
 
-  /* Hero kompakt → Frage 1 möglichst weit oben */
-  .hero__inner { padding-block: 14px 22px; row-gap: 14px; }
-  .hero__badges { margin-bottom: 10px; gap: 6px; }
-  .hero__badge { font-size: 12px; padding: 6px 11px; }
-  .hero h1 { font-size: clamp(23px, 6.6vw, 29px); margin-bottom: 9px; }
+  /* Hero maximal kompakt → alle Antworten von Frage 1 über der Falz */
+  .hero__inner { padding-block: 10px 18px; row-gap: 12px; }
+  .hero__badges { margin-bottom: 8px; gap: 6px; flex-wrap: nowrap; overflow: hidden; }
+  .hero__badge { font-size: 11.5px; padding: 5px 10px; white-space: nowrap; }
+  .hero__badge svg { width: 10px; height: 10px; }
+  .hero h1 { font-size: clamp(22px, 6.4vw, 28px); margin-bottom: 7px; }
   .hero__sub {
-    font-size: 15px; line-height: 1.5;
+    font-size: 14.5px; line-height: 1.45;
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
   }
   .hero__trust li { font-size: 14px; }
+  .funnel__reassure { margin-top: 11px; font-size: 12.5px; }
 
   /* Funnel-Karte kompakter */
-  .funnel__head { padding: 10px 16px; }
-  .funnel__head-title { font-size: 13.5px; }
-  .funnel__body { padding: 20px 18px; }
-  .step__count { margin-bottom: 8px; }
-  .step__q { font-size: 20.5px; }
-  .step__help { margin-bottom: 14px; }
-  .options { gap: 10px; }
-  .option { padding: 14px 15px; font-size: 16px; }
+  .funnel__head { padding: 9px 14px; }
+  .funnel__head-title { font-size: 13px; }
+  .funnel__head-hint { font-size: 12px; }
+  .funnel__body { padding: 17px 15px 19px; }
+  .step__count { margin-bottom: 6px; font-size: 12px; }
+  .step__q { font-size: 20px; margin-bottom: 6px; }
+  .step__help { font-size: 14.5px; margin-bottom: 13px; }
+  .options { gap: 9px; }
+  .option { padding: 13px 14px; font-size: 15.5px; gap: 12px; min-height: 54px; }
+  .option__dot { width: 22px; height: 22px; }
+  .funnel__nav { margin-top: 18px; }
 
   .trust__inner { grid-template-columns: 1fr 1fr; }
   .form-grid { grid-template-columns: 1fr; }
@@ -597,8 +688,28 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
   /* Sticky-CTA nur auf Mobil einblenden + Platz schaffen */
   .apply-sticky.is-visible { display: flex; animation: stickyIn .25s ease; }
-  body.has-sticky { padding-bottom: 84px; }
-  .funnel__back { padding: 12px 6px; font-size: 15.5px; }
+  body.has-sticky { padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+  .funnel__back { padding: 12px 6px; font-size: 15.5px; min-height: 46px; }
+  /* Absenden mobil in voller Breite – größtes Tap-Ziel im Funnel */
+  .funnel__nav--form { flex-direction: column-reverse; align-items: stretch; gap: 6px; }
+  .funnel__nav--form #submitBtn { width: 100%; padding: 17px 22px; }
+  .call-alt { flex-wrap: wrap; text-align: center; justify-content: center; }
+}
+
+/* Sehr schmale Geräte (iPhone SE & Co.) – letzte Reserve über der Falz */
+@media (max-width: 400px) {
+  /* Lieber zwei ganze Badges als drei angeschnittene */
+  .hero__badge:nth-child(n+3) { display: none; }
+}
+
+@media (max-width: 380px) {
+  .hero__inner { padding-block: 8px 16px; }
+  .hero h1 { font-size: 21.5px; }
+  .hero__sub { -webkit-line-clamp: 1; font-size: 14px; }
+  .funnel__body { padding: 15px 13px 18px; }
+  .step__q { font-size: 19px; }
+  .step__help { font-size: 14px; margin-bottom: 11px; }
+  .option { padding: 12px 13px; font-size: 15px; min-height: 50px; }
 }
 
 </style>
@@ -664,7 +775,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
               <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>
               Mini-Check zur Stelle
             </span>
-            <span class="funnel__head-hint">ca. 60 Sek.</span>
+            <span class="funnel__head-hint" id="funnelHint">ca. 60 Sek.</span>
           </div>
           <div class="funnel__bar"><div class="funnel__bar-fill" id="funnelBar"></div></div>
           <div class="funnel__body" id="funnelBody"><!-- JS --></div>
@@ -684,10 +795,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   <section class="trust">
     <div class="shell">
       <div class="trust__inner">
-        <div class="trust__cell"><b>19 Kollegen</b><span>familiäres Team</span></div>
-        <div class="trust__cell"><b>INDEX &amp; Co.</b><span>CNC-Maschinenpark</span></div>
-        <div class="trust__cell"><b>Made in Germany</b><span>Fertigung in Balgheim</span></div>
-        <div class="trust__cell"><b>Komplexe Teile</b><span>statt Massenware</span></div>
+        <div class="trust__cell reveal"><b><span data-count="19">19</span> Kollegen</b><span>familiäres Team</span></div>
+        <div class="trust__cell reveal reveal--d1"><b>INDEX &amp; Co.</b><span>CNC-Maschinenpark</span></div>
+        <div class="trust__cell reveal reveal--d2"><b>Made in Germany</b><span>Fertigung in Balgheim</span></div>
+        <div class="trust__cell reveal reveal--d2"><b>Komplexe Teile</b><span>statt Massenware</span></div>
       </div>
     </div>
   </section>
@@ -695,7 +806,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   <!-- MONEY-HOOK -->
   <section class="money" id="moneyHook" hidden>
     <div class="shell">
-      <div class="money__card">
+      <div class="money__card reveal">
         <span class="money__ic">
           <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13"/><path d="M12 8S9.5 3 7 4.5 12 8 12 8zM12 8s2.5-5 5-3.5S12 8 12 8z"/></svg>
         </span>
@@ -710,29 +821,29 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   <!-- JOB-DETAILS -->
   <section class="section section--soft" id="stelle">
     <div class="shell">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow eyebrow--center">Die Stelle im Detail</span>
         <h2 id="detailsTitle"><!-- JS --></h2>
         <p id="detailsLead"><!-- JS --></p>
       </div>
       <div class="cols">
-        <div class="col-card">
+        <div class="col-card reveal">
           <div class="col-card__ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.6l-6.4 6.4a2 2 0 1 0 2.8 2.8l6.4-6.4a4 4 0 0 0 5.6-5.6l-2.8 2.8-2-2 2.8-2.8z"/></svg></div>
           <h3>Deine Aufgaben</h3>
           <ul class="ticks" id="colTasks"><!-- JS --></ul>
         </div>
-        <div class="col-card">
+        <div class="col-card reveal reveal--d1">
           <div class="col-card__ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
           <h3>Dein Profil</h3>
           <ul class="ticks" id="colProfile"><!-- JS --></ul>
         </div>
-        <div class="col-card">
+        <div class="col-card reveal reveal--d2">
           <div class="col-card__ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z"/></svg></div>
           <h3>Wir bieten</h3>
           <ul class="ticks" id="colBenefits"><!-- JS --></ul>
         </div>
       </div>
-      <div class="cols-cta">
+      <div class="cols-cta reveal">
         <a href="#bewerbung" class="btn btn--primary btn--lg">
           Jetzt bewerben – in 60 Sekunden
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -846,6 +957,9 @@ const CONFIG = {
   phone: "07424 / 50 10 21",
   address: "Steigäcker 10 · 78582 Balgheim",
   contactEmail: "info@dreher-cnc.de",
+  // Optional: Mobilnummer mit WhatsApp. Sobald gefüllt, erscheint im Formular
+  // zusätzlich ein "Per WhatsApp bewerben"-Button (für diese Zielgruppe stark).
+  whatsapp: "",         // z. B. "4915112345678" (ohne + und Leerzeichen)
 
   quelle: "Dreher CNC Karriere-Funnel",
   maxUploadMB: 8, // max. Dateigröße für Lebenslauf-Upload
@@ -927,27 +1041,27 @@ const JOBS = {
       {
         short: "Ausbildung",
         q: "Hast du eine abgeschlossene Ausbildung im Metallbereich?",
-        help: "Wir suchen gezielt Zerspanungsmechaniker/innen oder Industriemechaniker/innen.",
+        help: "Gesucht: Zerspanungs- oder Industriemechaniker/in – z. B. auch Werkzeugmechaniker/in.",
         scored: true,
         key: true,
         options: [
           { label: "Ja – Zerspanungsmechaniker/in", score: 2 },
           { label: "Ja – Industriemechaniker/in", score: 2 },
-          { label: "Ja – andere Metall-Ausbildung (z. B. Werkzeugmechaniker/in)", score: 1 },
-          { label: "Nein, keine abgeschlossene Ausbildung im Metallbereich", score: 0, ko: true, koReason: "eine abgeschlossene Ausbildung als Zerspanungsmechaniker/in oder Industriemechaniker/in" },
+          { label: "Ja – andere Metall-Ausbildung", score: 1 },
+          { label: "Nein, keine Metall-Ausbildung", score: 0, ko: true, koReason: "eine abgeschlossene Ausbildung als Zerspanungsmechaniker/in oder Industriemechaniker/in" },
         ],
       },
       {
         short: "Deutschkenntnisse",
         q: "Wie gut sprichst du Deutsch?",
-        help: "Für Zeichnungen, Einweisungen und die Abstimmung im Team brauchst du mindestens Niveau B1.",
+        help: "Mindestens B1 – für Zeichnungen und die Abstimmung im Team.",
         scored: true,
         key: true,
         critical: true,
         options: [
-          { label: "Muttersprache oder fließend (C1–C2)", score: 2 },
-          { label: "Gut – ich verstehe und spreche sicher (B2)", score: 2 },
-          { label: "Mittel – ich komme im Arbeitsalltag zurecht (B1)", score: 1 },
+          { label: "Fließend / Muttersprache (C1–C2)", score: 2 },
+          { label: "Gut – ich spreche sicher (B2)", score: 2 },
+          { label: "Mittel – komme im Alltag zurecht (B1)", score: 1 },
           { label: "Nur Grundkenntnisse (A1–A2)", score: 0, ko: true, koReason: "Deutschkenntnisse auf mindestens Niveau B1" },
         ],
       },
@@ -960,8 +1074,8 @@ const JOBS = {
         options: [
           { label: "Ja – INDEX rüsten und programmieren", score: 2 },
           { label: "Ja – INDEX bedienen", score: 2 },
-          { label: "Nein, aber an anderen CNC-Drehmaschinen (z. B. Traub, DMG, Citizen)", score: 1 },
-          { label: "Noch keine Erfahrung an CNC-Drehmaschinen", score: 0 },
+          { label: "Nein – aber an anderen CNC-Drehmaschinen", score: 1 },
+          { label: "Noch keine CNC-Dreherfahrung", score: 0 },
         ],
       },
       {
@@ -970,7 +1084,7 @@ const JOBS = {
         help: "Bei uns arbeitest du eigenverantwortlich an deiner Maschine.",
         scored: true,
         options: [
-          { label: "Ja, inklusive Programmanpassungen an der Steuerung", score: 2 },
+          { label: "Ja, inkl. Programmanpassungen", score: 2 },
           { label: "Rüsten ja – Programmieren mit Unterstützung", score: 1 },
           { label: "Noch nicht – ich bediene bisher", score: 0 },
         ],
@@ -981,8 +1095,8 @@ const JOBS = {
         help: "Unser Standort ist mit dem Auto am besten zu erreichen.",
         scored: false,
         options: [
-          { label: "Ja, Führerschein und eigenes Fahrzeug", score: 0 },
-          { label: "Führerschein ja, kein eigenes Fahrzeug", score: 0 },
+          { label: "Ja – mit eigenem Fahrzeug", score: 0 },
+          { label: "Ja – ohne eigenes Fahrzeug", score: 0 },
           { label: "Nein", score: 0 },
         ],
       },
@@ -1027,7 +1141,41 @@ const ICON = {
 /* ----------------------------------------------------------------------
    STATE
 ---------------------------------------------------------------------- */
-const state = { jobKey: null, job: null, pos: 1, answers: {}, rejected: false, koReason: "", koFromPos: 1, variant: "fit", started: false, _updateSticky: null };
+const state = { jobKey: null, job: null, pos: 1, answers: {}, contact: {}, rejected: false, koReason: "", koFromPos: 1, variant: "fit", started: false, _updateSticky: null };
+
+/* ----------------------------------------------------------------------
+   FORTSCHRITT SICHERN
+   Mobil bricht jede zweite Sitzung ab (Anruf, App-Wechsel, Display aus).
+   Antworten + bereits getippte Kontaktdaten überleben deshalb einen Reload.
+---------------------------------------------------------------------- */
+const storeKey = () => `dreher_funnel_${state.jobKey}`;
+
+function saveState() {
+  try {
+    sessionStorage.setItem(storeKey(), JSON.stringify({
+      pos: state.pos, answers: state.answers, contact: state.contact,
+    }));
+  } catch (e) { /* Privatmodus o. ä. – dann eben ohne */ }
+}
+function restoreState() {
+  try {
+    const d = JSON.parse(sessionStorage.getItem(storeKey()) || "null");
+    if (!d) return;
+    state.answers = d.answers || {};
+    state.contact = d.contact || {};
+    // Nie in den Danke-Screen zurückspringen – maximal bis zum Formular
+    if (d.pos) state.pos = Math.min(d.pos, state.job.questions.length + 1);
+    if (Object.keys(state.answers).length) state.started = true;
+  } catch (e) { /* ignorieren */ }
+}
+function clearState() {
+  try { sessionStorage.removeItem(storeKey()); } catch (e) {}
+}
+
+// Kurzes haptisches Feedback beim Antippen (Android; iOS ignoriert es still)
+function buzz(ms) {
+  try { navigator.vibrate && navigator.vibrate(ms || 12); } catch (e) {}
+}
 
 /* ----------------------------------------------------------------------
    ROUTING / BOOT
@@ -1093,8 +1241,10 @@ function loadJob(key) {
     : (state.job.defaultVariant || "fit");
   state.pos = 1; // Funnel startet direkt bei Frage 1 (sofort aktiv)
   state.answers = {};
+  state.contact = {};
   state.rejected = false;
   state.started = false;
+  restoreState(); // abgebrochene Sitzung fortsetzen (Anruf, App-Wechsel …)
 
   $("#pickerSection").hidden = true;
   $("#jobView").hidden = false;
@@ -1103,6 +1253,7 @@ function loadJob(key) {
   renderFunnel();
   attachCtas();
   setupStickyCta();
+  initEffects();
   document.title = `${state.job.title} ${state.job.gender} – Karriere bei Dreher CNC`;
 }
 
@@ -1186,6 +1337,19 @@ function totalPos() {
 function setBar(pct) { $("#funnelBar").style.width = pct + "%"; }
 function setProgress() { setBar((state.pos / totalPos()) * 100); }
 
+// Ehrlicher Rest-Aufwand statt statischem "ca. 60 Sek." – hält die Abbruchquote unten
+function setHint(txt) { const el = $("#funnelHint"); if (el) el.textContent = txt; }
+function updateHint() {
+  const N = state.job.questions.length;
+  if (state.rejected) return setHint("");
+  if (state.pos <= N) {
+    const rest = (N - state.pos + 1) * 10;
+    return setHint(`noch ca. ${rest} Sek.`);
+  }
+  if (state.pos === N + 1) return setHint("letzter Schritt");
+  setHint("geschafft ✓");
+}
+
 function ensureVisible(force) {
   const card = $(".funnel");
   if (!card) return;
@@ -1202,11 +1366,13 @@ function renderFunnel() {
 
   if (state.rejected) {
     setBar(100);
+    updateHint();
     body.innerHTML = renderReject();
     bindReject();
     return;
   }
   setProgress();
+  updateHint();
 
   if (state.pos >= 1 && state.pos <= N) {
     body.innerHTML = renderQuestion(j.questions[state.pos - 1], state.pos, N);
@@ -1223,6 +1389,7 @@ function renderFunnel() {
 
 function goTo(pos) {
   state.pos = pos;
+  saveState();
   renderFunnel();
   // Bei größeren Schritten (Formular/Success) sicherstellen, dass die Karte sichtbar ist
   const N = state.job.questions.length;
@@ -1266,7 +1433,9 @@ function bindQuestion() {
         state.answers[q.short] = { label: opt.label, score: opt.score, scored: q.scored };
         if (!state.started) { state.started = true; if (state._updateSticky) state._updateSticky(); }
         $("#opts").querySelectorAll(".option").forEach((b) => b.classList.remove("is-selected"));
-        btn.classList.add("is-selected");
+        btn.classList.add("is-selected", "is-flash");
+        buzz(12);
+        saveState();
 
         // Knockout → sofortige Absage
         if (opt.ko) {
@@ -1276,6 +1445,10 @@ function bindQuestion() {
           return;
         }
         setTimeout(() => goTo(state.pos + 1), 230);
+      });
+      // Auch per Tastatur bedienbar
+      btn.addEventListener("keydown", (ev) => {
+        if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); btn.click(); }
       });
     });
 
@@ -1328,102 +1501,179 @@ function computeMatch() {
 /* ----- Formular ----- */
 function renderForm() {
   const m = computeMatch();
+  const c = state.contact || {};
+  const v = (k) => esc(c[k] || "");
+  const pref = c.contactPref || "Anruf";
+  const seg = (val, svg) =>
+    `<button type="button" class="seg${pref === val ? " is-active" : ""}" data-val="${val}">${svg}${val}</button>`;
+
+  // Anrufen als gleichwertiger Weg – für Werkstatt-Zielgruppen oft der kürzere
+  const callAlt = CONFIG.phone
+    ? `<div class="call-alt">
+         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+         Lieber direkt sprechen? <a href="tel:${esc(CONFIG.phone.replace(/[^\d+]/g, ""))}">${esc(CONFIG.phone)}</a>
+       </div>`
+    : "";
+
+  // Optional: WhatsApp-Direktbewerbung (erscheint nur, wenn CONFIG.whatsapp gesetzt ist)
+  const waText = encodeURIComponent(`Hallo Dreher-Team, ich interessiere mich für die Stelle als ${state.job.title} ${state.job.gender}.`);
+  const waBtn = CONFIG.whatsapp
+    ? `<a class="btn btn--ghost btn--block" style="margin-top:12px" href="https://wa.me/${esc(CONFIG.whatsapp)}?text=${waText}" target="_blank" rel="noopener">
+         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5.6A8.38 8.38 0 0 1 4 11.5 8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg>
+         Per WhatsApp bewerben
+       </a>`
+    : "";
+
   return `<div class="step">
     <div class="step__count">Letzter Schritt</div>
-    <h3 class="step__q">Fast geschafft – deine Kontaktdaten</h3>
-    <p class="step__help">Wir melden uns telefonisch, per WhatsApp oder E-Mail bei dir.</p>
+    <h3 class="step__q">Fast geschafft – wie erreichen wir dich?</h3>
+    <p class="step__help">Zwei Angaben genügen. Alles Weitere klären wir im Gespräch.</p>
 
     <span class="match-chip match-chip--${m.cls}">${ICON.check} Dein Ergebnis: ${esc(m.level)}</span>
     <p class="pay-note">Dein genaues Gehalt besprechen wir persönlich – fair und abhängig von deiner Erfahrung.</p>
 
     <form id="appForm" novalidate>
       <div class="form-grid">
-        <div class="field">
+        <div class="field full">
           <label for="fName">Name *</label>
-          <input id="fName" name="Name" type="text" required autocomplete="name" placeholder="Vor- und Nachname" />
+          <input id="fName" name="Name" type="text" required autocomplete="name" enterkeyhint="next" placeholder="Vor- und Nachname" value="${v("name")}" />
         </div>
-        <div class="field">
+        <div class="field full">
           <label for="fPhone">Telefon / WhatsApp *</label>
-          <input id="fPhone" name="Telefon" type="tel" required autocomplete="tel" inputmode="tel" placeholder="z. B. 0170 1234567" />
+          <input id="fPhone" name="Telefon" type="tel" required autocomplete="tel" inputmode="tel" enterkeyhint="next" placeholder="z. B. 0170 1234567" value="${v("phone")}" />
         </div>
         <div class="field full">
           <label>Wie erreichen wir dich am liebsten?</label>
           <div class="segmented" id="contactPref" role="group" aria-label="Bevorzugter Kontakt">
-            <button type="button" class="seg is-active" data-val="Anruf">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              Anruf
-            </button>
-            <button type="button" class="seg" data-val="WhatsApp">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5.6A8.38 8.38 0 0 1 4 11.5 8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg>
-              WhatsApp
-            </button>
+            ${seg("Anruf", '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>')}
+            ${seg("WhatsApp", '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5.6A8.38 8.38 0 0 1 4 11.5 8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg>')}
           </div>
         </div>
         <div class="field">
           <label for="fPlz">PLZ *</label>
-          <input id="fPlz" name="PLZ" type="text" required autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="z. B. 78582" />
+          <input id="fPlz" name="PLZ" type="text" required autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" enterkeyhint="done" placeholder="z. B. 78582" value="${v("plz")}" />
         </div>
         <div class="field">
-          <label for="fEmail">E-Mail <span class="opt">(optional)</span></label>
-          <input id="fEmail" name="E-Mail" type="email" autocomplete="email" inputmode="email" placeholder="name@beispiel.de" />
-        </div>
-        <div class="field full">
           <label for="fStart">Frühester Start</label>
           <select id="fStart" name="Frühester Start">
-            <option>Ab sofort</option>
-            <option>In 1 Monat</option>
-            <option>In 2–3 Monaten</option>
-            <option>Nach Absprache</option>
+            <option${c.start === "Ab sofort" ? " selected" : ""}>Ab sofort</option>
+            <option${c.start === "In 1 Monat" ? " selected" : ""}>In 1 Monat</option>
+            <option${c.start === "In 2–3 Monaten" ? " selected" : ""}>In 2–3 Monaten</option>
+            <option${c.start === "Nach Absprache" ? " selected" : ""}>Nach Absprache</option>
           </select>
         </div>
-        <div class="field full">
-          <label for="fMsg">Nachricht <span class="opt">(optional)</span></label>
-          <textarea id="fMsg" name="Nachricht" placeholder="Gibt es etwas, das wir vorab wissen sollten?"></textarea>
-        </div>
-        <div class="field full">
-          <label for="fCv">Lebenslauf / Unterlagen <span class="opt">(optional)</span></label>
-          <label class="file-field" id="fileLabel">
-            <input id="fCv" name="Lebenslauf" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
-            <span class="file-field__ic">${ICON.upload}</span>
-            <span class="file-field__txt" id="fileTxt">PDF, Word oder Bild – max. ${CONFIG.maxUploadMB} MB</span>
-          </label>
-        </div>
+
+        <!-- Alles Optionale eingeklappt: das Formular wirkt kurz, die Felder bleiben verfügbar -->
+        <details class="more"${c.moreOpen ? " open" : ""} id="moreBox">
+          <summary>
+            <span class="more__ic">${ICON.upload}</span>
+            Lebenslauf, E-Mail &amp; Nachricht
+            <span class="more__hint">optional</span>
+          </summary>
+          <div class="more__body">
+            <div class="field">
+              <label for="fEmail">E-Mail</label>
+              <input id="fEmail" name="E-Mail" type="email" autocomplete="email" inputmode="email" placeholder="name@beispiel.de" value="${v("email")}" />
+            </div>
+            <div class="field">
+              <label for="fMsg">Nachricht</label>
+              <textarea id="fMsg" name="Nachricht" placeholder="Gibt es etwas, das wir vorab wissen sollten?">${v("msg")}</textarea>
+            </div>
+            <div class="field">
+              <label for="fCv">Lebenslauf / Unterlagen</label>
+              <label class="file-field" id="fileLabel">
+                <input id="fCv" name="Lebenslauf" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                <span class="file-field__ic">${ICON.upload}</span>
+                <span class="file-field__txt" id="fileTxt">PDF, Word oder Foto – max. ${CONFIG.maxUploadMB} MB</span>
+              </label>
+            </div>
+          </div>
+        </details>
 
         <label class="consent">
-          <input type="checkbox" id="fConsent" required />
+          <input type="checkbox" id="fConsent" required${c.consent ? " checked" : ""} />
           <span>Ich bin mit der Verarbeitung meiner Daten zur Bearbeitung meiner Bewerbung einverstanden. Es gilt die <a href="https://www.dreher-cnc.de/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span>
         </label>
+
+        <div class="form-trust">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          <span>Deine Angaben werden vertraulich behandelt und ausschließlich für deine Bewerbung genutzt.</span>
+        </div>
 
         <div class="form-error" id="formError"></div>
       </div>
 
-      <div class="funnel__nav">
+      <div class="funnel__nav funnel__nav--form">
         <button type="button" class="funnel__back" data-back>${ICON.back} Zurück</button>
         <button type="submit" class="btn btn--primary btn--lg" id="submitBtn">Bewerbung absenden ${ICON.arrow}</button>
       </div>
+      ${waBtn}
+      ${callAlt}
     </form>
   </div>`;
 }
 
 function bindForm() {
   bindNav();
+
   // Kontakt-Präferenz (Anruf/WhatsApp) umschalten
   const seg = $("#contactPref");
   if (seg) seg.querySelectorAll(".seg").forEach((btn) => {
     btn.addEventListener("click", () => {
       seg.querySelectorAll(".seg").forEach((b) => b.classList.remove("is-active"));
       btn.classList.add("is-active");
+      state.contact.contactPref = btn.dataset.val;
+      buzz(10);
+      saveState();
     });
   });
+
+  // Eingaben laufend sichern – ein Anruf zwischendurch kostet dann keine Bewerbung
+  const map = { fName: "name", fPhone: "phone", fPlz: "plz", fEmail: "email", fMsg: "msg", fStart: "start" };
+  Object.entries(map).forEach(([id, key]) => {
+    const el = $("#" + id);
+    if (!el) return;
+    el.addEventListener("input", () => {
+      state.contact[key] = el.value;
+      clearFieldError(el);
+      saveState();
+    });
+    el.addEventListener("change", () => { state.contact[key] = el.value; saveState(); });
+  });
+  const consent = $("#fConsent");
+  if (consent) consent.addEventListener("change", () => { state.contact.consent = consent.checked; saveState(); });
+  const more = $("#moreBox");
+  if (more) more.addEventListener("toggle", () => { state.contact.moreOpen = more.open; saveState(); });
+
   const file = $("#fCv");
   file.addEventListener("change", () => {
     const f = file.files[0];
     const txt = $("#fileTxt");
-    if (!f) { txt.textContent = `PDF, Word oder Bild – max. ${CONFIG.maxUploadMB} MB`; $("#fileLabel").classList.remove("has-file"); return; }
+    if (!f) { txt.textContent = `PDF, Word oder Foto – max. ${CONFIG.maxUploadMB} MB`; $("#fileLabel").classList.remove("has-file"); return; }
     txt.textContent = `${f.name} (${(f.size / 1024 / 1024).toFixed(1)} MB)`;
     $("#fileLabel").classList.add("has-file");
   });
+
   $("#appForm").addEventListener("submit", onSubmit);
+}
+
+/* ----- Feldgenaue Fehler statt einer Sammelmeldung ganz oben ----- */
+function clearFieldError(el) {
+  const f = el.closest(".field");
+  if (!f) return;
+  f.classList.remove("has-error");
+  const e = f.querySelector(".field__err");
+  if (e) e.remove();
+}
+function setFieldError(el, msg) {
+  const f = el.closest(".field");
+  if (!f) return;
+  clearFieldError(el);
+  f.classList.add("has-error");
+  const span = document.createElement("span");
+  span.className = "field__err";
+  span.textContent = msg;
+  f.appendChild(span);
 }
 
 async function onSubmit(e) {
@@ -1431,24 +1681,45 @@ async function onSubmit(e) {
   const errBox = $("#formError");
   errBox.classList.remove("is-visible");
 
-  const name = $("#fName").value.trim();
-  const phone = $("#fPhone").value.trim();
-  const email = $("#fEmail").value.trim();
-  const plz = $("#fPlz").value.trim();
+  const nameEl = $("#fName"), phoneEl = $("#fPhone"), plzEl = $("#fPlz"), emailEl = $("#fEmail");
+  const name = nameEl.value.trim();
+  const phone = phoneEl.value.trim();
+  const email = emailEl.value.trim();
+  const plz = plzEl.value.trim();
   const consent = $("#fConsent").checked;
   const file = $("#fCv").files[0] || null;
   const segActive = $("#contactPref .seg.is-active");
   const contactPref = segActive ? segActive.dataset.val : "Anruf";
 
-  const fail = (msg) => { errBox.textContent = msg; errBox.classList.add("is-visible"); };
+  // Alle Fehler auf einmal markieren, dann zum ersten scrollen
+  const problems = [];
+  [nameEl, phoneEl, plzEl, emailEl].forEach(clearFieldError);
+  if (!name) problems.push([nameEl, "Bitte gib deinen Namen an."]);
+  if (phone.replace(/\D/g, "").length < 6) problems.push([phoneEl, "Bitte gib eine gültige Telefonnummer an."]);
+  if (!/^\d{5}$/.test(plz)) problems.push([plzEl, "Bitte gib deine 5-stellige PLZ an."]);
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) problems.push([emailEl, "Diese E-Mail-Adresse sieht nicht gültig aus."]);
 
-  if (!name) return fail("Bitte gib deinen Namen an.");
-  if (phone.replace(/\D/g, "").length < 6) return fail("Bitte gib eine gültige Telefonnummer an.");
-  if (!/^\d{5}$/.test(plz)) return fail("Bitte gib deine 5-stellige PLZ an.");
-  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail("Bitte gib eine gültige E-Mail-Adresse an (oder lass das Feld leer).");
-  if (!consent) return fail("Bitte stimme der Datenverarbeitung zu.");
-  if (file && file.size > CONFIG.maxUploadMB * 1024 * 1024)
-    return fail(`Die Datei ist zu groß (max. ${CONFIG.maxUploadMB} MB). Bitte sende größere Dateien per E-Mail.`);
+  if (problems.length) {
+    problems.forEach(([el, msg]) => setFieldError(el, msg));
+    const first = problems[0][0];
+    if (first === emailEl) { const mb = $("#moreBox"); if (mb) mb.open = true; }
+    first.scrollIntoView({ behavior: "smooth", block: "center" });
+    setTimeout(() => first.focus({ preventScroll: true }), 300);
+    buzz(30);
+    return;
+  }
+  if (!consent) {
+    errBox.textContent = "Bitte stimme der Datenverarbeitung zu.";
+    errBox.classList.add("is-visible");
+    errBox.scrollIntoView({ behavior: "smooth", block: "center" });
+    buzz(30);
+    return;
+  }
+  if (file && file.size > CONFIG.maxUploadMB * 1024 * 1024) {
+    errBox.textContent = `Die Datei ist zu groß (max. ${CONFIG.maxUploadMB} MB). Bitte sende größere Dateien per E-Mail.`;
+    errBox.classList.add("is-visible");
+    return;
+  }
 
   const btn = $("#submitBtn");
   btn.disabled = true;
@@ -1457,11 +1728,13 @@ async function onSubmit(e) {
   const data = { name, phone, email, plz, contactPref };
   const ok = await sendLead(data, file);
   if (ok) {
+    buzz([14, 60, 14]);
     goTo(totalPos());
   } else {
     btn.disabled = false;
     btn.innerHTML = "Bewerbung absenden " + ICON.arrow;
-    fail("Senden hat nicht geklappt. Bitte versuche es erneut oder schreib uns direkt.");
+    errBox.textContent = "Senden hat nicht geklappt. Bitte versuche es erneut oder ruf uns kurz an.";
+    errBox.classList.add("is-visible");
     const a = document.createElement("a");
     a.href = mailtoFallback(data);
     a.className = "btn btn--ghost btn--block";
@@ -1605,6 +1878,13 @@ function mailtoFallback(data) {
 
 /* ----- Success ----- */
 function renderSuccess() {
+  clearState(); // abgeschickt = kein wiederherstellbarer Zwischenstand mehr
+  const call = CONFIG.phone
+    ? `<div class="call-alt" style="margin-top:22px">
+         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+         Noch eine Frage? <a href="tel:${esc(CONFIG.phone.replace(/[^\d+]/g, ""))}">${esc(CONFIG.phone)}</a>
+       </div>`
+    : "";
   return `<div class="step success">
     <div class="success__ic">
       <svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>
@@ -1616,7 +1896,50 @@ function renderSuccess() {
       <div class="success__step"><span>2</span> Kurzes Kennenlern-Telefonat</div>
       <div class="success__step"><span>3</span> Persönliches Gespräch bei Dreher</div>
     </div>
+    ${call}
   </div>`;
+}
+
+/* ----------------------------------------------------------------------
+   EFFEKTE
+   Dezent und nur unterstützend: Inhalte fahren beim Scrollen ein, Kennzahlen
+   zählen hoch. Ohne JS oder bei "Bewegung reduzieren" ist alles sofort da.
+---------------------------------------------------------------------- */
+function countUp(el) {
+  if (el._counted) return;
+  el._counted = true;
+  const target = parseInt(el.dataset.count, 10) || 0;
+  const dur = 900, t0 = performance.now();
+  const tick = (t) => {
+    const k = Math.min(1, (t - t0) / dur);
+    el.textContent = Math.round(target * (1 - Math.pow(1 - k, 3)));
+    if (k < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+function initEffects() {
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const els = document.querySelectorAll(".reveal");
+  const counters = document.querySelectorAll("[data-count]");
+
+  if (reduce || !("IntersectionObserver" in window)) {
+    els.forEach((el) => el.classList.add("is-in"));
+    counters.forEach((el) => { el.textContent = el.dataset.count; el._counted = true; });
+    return;
+  }
+  counters.forEach((el) => { el.textContent = "0"; });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (!en.isIntersecting) return;
+      en.target.classList.add("is-in");
+      en.target.querySelectorAll("[data-count]").forEach(countUp);
+      io.unobserve(en.target);
+    });
+  }, { threshold: 0.14, rootMargin: "0px 0px -40px 0px" });
+
+  els.forEach((el) => io.observe(el));
 }
 
 /* ----- Navigation ----- */
