@@ -1,6 +1,2 @@
-# Original-Fotos bleiben lokal (Persönlichkeitsrechte der abgebildeten Kollegen)
-fotos/*
-!fotos/README.md
-
-# Export wird bei jedem Lauf neu erzeugt (12 PNGs, ~12 MB)
-export/
+# Nichts ignorieren: Fotos und Export gehören dazu, damit die Motive
+# reproduzierbar sind und direkt heruntergeladen werden können.

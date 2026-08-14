@@ -117,13 +117,15 @@ Feed 4:5 (1080×1350) und Story 9:16 (1080×1920). Jedes Motiv verweist auf die
 passende Headline-Variante der Karriereseite (`?v=…`), damit Anzeige und Seite
 dieselbe Sprache sprechen.
 
+Die fertigen Dateien liegen in [`creatives/export/`](creatives/export/), die
+Werkstatt-Fotos sind eingebunden. Übersicht aller Motive:
+[`creatives/uebersicht.jpg`](creatives/uebersicht.jpg).
+
+Nach einer Text- oder Fotoänderung neu erzeugen:
+
 ```bash
 cd creatives && npm i -D playwright && node render.js
 ```
-
-Vorher die Werkstatt-Fotos nach `creatives/fotos/` legen – Dateinamen und
-Zuordnung stehen in [`creatives/fotos/README.md`](creatives/fotos/README.md).
-Eine Vorschau aller Motive: [`creatives/uebersicht.png`](creatives/uebersicht.png).
 
 ---
 

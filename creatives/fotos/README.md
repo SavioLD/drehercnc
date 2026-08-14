@@ -1,37 +1,33 @@
 # Fotos für die Creatives
 
-Hier gehören die fünf Werkstatt-Fotos rein – **exakt unter diesen Dateinamen**,
-dann greifen die Motive automatisch darauf zu:
+Die fünf Werkstatt-Fotos liegen hier und sind in den Motiven eingebunden:
 
-| Dateiname | Welches Foto | Wird verwendet in |
+| Datei | Motiv | Verwendet in |
 |---|---|---|
-| `messtechnik-keyence.jpg` | Mitarbeiter am Keyence-Messgerät (Bildschirm mit Messkurve) | `toleranz` |
+| `werkzeugausgabe.jpg` | Kollege an der Werkzeugausgabe (Schubladen 1–11) | `buerokratie` |
 | `index-c200-team.jpg` | Zwei Kollegen am Touchpanel der INDEX C200 | `team`, `region` |
-| `index-c200-4d.jpg` | Mitarbeiter an der INDEX C200-4D (Siemens-Steuerung) | `index` |
-| `voreinstellgeraet.jpg` | Mitarbeiter am blauen Werkzeug-Voreinstellgerät | `check` |
-| `werkzeugausgabe.jpg` | Mitarbeiter an der Werkzeugausgabe (Schubladen 1–11) | `buerokratie` |
+| `index-c200-4d.jpg` | Kollege an der INDEX C200-4D (Siemens-Steuerung) | `index` |
+| `messtechnik-keyence.jpg` | Kollege am Keyence-Messgerät | `toleranz` |
+| `voreinstellgeraet.jpg` | Kollege am Werkzeug-Voreinstellgerät | `check` |
 
-Danach im Ordner `creatives/` einmal `node render.js` ausführen – fertig.
+## Foto austauschen
 
-## Format
-
-- **Hochformat** ist ideal (die Fotos sind bereits hochkant).
-- Mindestens **1400 px** in der Breite, sonst wird es im 1080er Export unscharf.
-- JPG oder PNG. Bei PNG einfach die Endung im Dateinamen anpassen
-  (in `index.html` im `CREATIVES`-Array).
+Datei unter demselben Namen ersetzen und im Ordner `creatives/` einmal
+`node render.js` laufen lassen. Passt der Bildausschnitt danach nicht, das
+Feld `focus` (und optional `focusStory`) des Motivs in `index.html` anpassen –
+das ist eine CSS-`background-position`, also z. B. `"60% 30%"`: erst waagrecht,
+dann senkrecht. Faustregel: die Person gehört in die obere Bildhälfte, unten
+liegt der Textblock im abgedunkelten Bereich.
 
 ## Bildlook
 
 Alle Fotos werden automatisch in **Graustufen + Türkis-Duoton** umgerechnet und
-mit einem Verlauf abgedunkelt. Dadurch wirken die unterschiedlichen Aufnahmen
-wie eine zusammengehörige Kampagne, und die Schrift ist immer lesbar –
-unabhängig davon, wie hell oder bunt das Originalfoto ist.
-
-Fehlt eine Datei, rendert das Motiv auf der türkisen Markenfläche. Das sieht
-sauber aus, verschenkt aber den Werkstatt-Bezug.
+nach unten abgedunkelt. Dadurch wirken Messraum, Werkzeugausgabe und
+Maschinenhalle wie eine zusammengehörige Kampagne, und die Schrift ist auf
+jedem Motiv lesbar.
 
 ## Bildrechte
 
-Auf allen Fotos sind Mitarbeitende erkennbar (auch von hinten). Vor dem
-Anzeigenstart bitte die schriftliche Einwilligung der abgebildeten Personen
-zur werblichen Nutzung einholen.
+Auf allen Fotos sind Mitarbeitende erkennbar. Vor dem Anzeigenstart bitte die
+schriftliche Einwilligung der abgebildeten Personen zur werblichen Nutzung
+einholen.

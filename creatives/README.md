@@ -4,20 +4,22 @@ Sechs Motive, jeweils als **Feed 4:5 (1080×1350)** und **Story/Reel 9:16 (1080�
 also 12 fertige Dateien. Alle in der Dreher-CI, mit den echten Werkstatt-Fotos,
 und bewusst **ohne** das übliche „Wir suchen ab sofort …“.
 
-## Erzeugen
+Die fertigen Dateien liegen in [`export/`](export/) – direkt verwendbar.
+
+## Neu erzeugen
 
 ```bash
 cd creatives
 npm i -D playwright        # einmalig
-node render.js             # → creatives/export/*.png
+node render.js             # → creatives/export/*.jpg
 ```
 
 `index.html` lässt sich auch einfach im Browser öffnen – dort liegen alle Motive
 in Originalgröße untereinander. Der Ordner `export/` wird bei jedem Lauf
 überschrieben.
 
-> **Vorher die Fotos ablegen:** siehe [`fotos/README.md`](fotos/README.md).
-> Ohne Fotos rendern die Motive auf der türkisen Markenfläche.
+> **Fotos:** liegen in [`fotos/`](fotos/) und sind eingebunden. Austauschen
+> oder Bildausschnitt korrigieren: siehe [`fotos/README.md`](fotos/README.md).
 
 > **Schriften:** `index.html` lädt Inter von Google Fonts. Ohne Internet-
 > verbindung rendert der Export in einer Ersatzschrift – dann sitzen zwar alle

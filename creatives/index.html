@@ -138,6 +138,9 @@ h1 .box {
 /* ==========================================================================
    MOTIVE
    photo  → Dateiname in creatives/fotos/ (fehlt sie, greift die Markenfläche)
+   focus  → Bildausschnitt (CSS background-position). Die Person soll im oberen,
+            hellen Teil sitzen – unten liegt der Textblock im abgedunkelten Bereich.
+   focusStory → abweichender Ausschnitt fürs Hochformat (optional)
    v      → Landingpage-Variante für den Message-Match (index.html?v=…)
    ========================================================================== */
 const JOB = "Zerspanungsmechaniker (m/w/d)";
@@ -147,6 +150,8 @@ const CREATIVES = [
     id: "toleranz",
     v: "fit",
     photo: "messtechnik-keyence.jpg",
+    focus: "58% 26%",
+    focusStory: "58% 22%",
     chip: "Balgheim",
     kicker: "Präzisionsdrehteile",
     figure: "0,01 mm",
@@ -159,6 +164,8 @@ const CREATIVES = [
     id: "team",
     v: "team",
     photo: "index-c200-team.jpg",
+    focus: "62% 30%",
+    focusStory: "62% 26%",
     chip: "78582 Balgheim",
     kicker: "Keine Personalnummer",
     h1: '19 Kollegen.<br>Und bald <span class="box">20</span>?',
@@ -169,6 +176,8 @@ const CREATIVES = [
     id: "index",
     v: "fit",
     photo: "index-c200-4d.jpg",
+    focus: "52% 26%",
+    focusStory: "52% 22%",
     chip: "INDEX C200 · C200-4D",
     kicker: "Maschinenpark",
     h1: 'Deine nächste Maschine spricht <em>INDEX</em>.',
@@ -179,6 +188,8 @@ const CREATIVES = [
     id: "check",
     v: "fit",
     photo: "voreinstellgeraet.jpg",
+    focus: "56% 32%",
+    focusStory: "56% 26%",
     chip: "ohne Anschreiben",
     kicker: "Bewerben in 60 Sekunden",
     h1: '5 Fragen.<br>Dann weißt <em>du</em>, ob es passt.',
@@ -189,6 +200,8 @@ const CREATIVES = [
     id: "buerokratie",
     v: "team",
     photo: "werkzeugausgabe.jpg",
+    focus: "52% 28%",
+    focusStory: "52% 24%",
     chip: "kurze Wege",
     kicker: "Werkstatt statt Verwaltung",
     h1: 'Werkzeug per Knopfdruck.<br>Freigabe-Zettel: <em>keiner</em>.',
@@ -199,6 +212,8 @@ const CREATIVES = [
     id: "region",
     v: "region",
     photo: "index-c200-team.jpg",
+    focus: "62% 30%",
+    focusStory: "62% 26%",
     chip: "78582 Balgheim",
     kicker: "Raum Tuttlingen · Spaichingen",
     h1: 'Dein Arbeitsweg endet in <em>Balgheim</em>.',
@@ -229,7 +244,7 @@ function canvas(c, format) {
   return `<figure class="wrap">
     <figcaption>${c.id} <span>· ${story ? "Story 1080×1920" : "Feed 1080×1350"} · ?v=${c.v}</span></figcaption>
     <div class="canvas${story ? " canvas--story" : ""}" id="${c.id}-${format}">
-      <div class="shot" style="background-image:url('fotos/${c.photo}')"></div>
+      <div class="shot" style="background-image:url('fotos/${c.photo}');background-position:${(story && c.focusStory) || c.focus || "center"}"></div>
       <div class="duo"></div>
       <div class="hatch"></div>
       <div class="scrim"></div>

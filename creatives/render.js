@@ -3,8 +3,10 @@
    -------------------------------------------------------------------------
    Voraussetzung: Node + Playwright (npm i -D playwright)
    Aufruf:        node render.js
-   Ergebnis:      creatives/export/<motiv>-feed.png  (1080×1350)
-                  creatives/export/<motiv>-story.png (1080×1920)
+   Ergebnis:      creatives/export/<motiv>-feed.jpg  (1080×1350)
+                  creatives/export/<motiv>-story.jpg (1080×1920)
+                  JPEG statt PNG, weil die Motive fotografisch sind – Meta
+                  rechnet ohnehin neu und die Dateien bleiben handlich.
 
    Die Fotos gehören nach creatives/fotos/ (Dateinamen siehe fotos/README.md).
    Fehlt ein Foto, rendert das Motiv auf der türkisen Markenfläche – die
@@ -35,10 +37,10 @@ const PAGE = "file://" + path.join(__dirname, "index.html");
   if (!ids.length) throw new Error("Keine Motive gefunden – index.html prüfen.");
 
   for (const id of ids) {
-    const file = path.join(OUT, id + ".png");
-    await page.locator("#" + id).screenshot({ path: file });
+    const file = path.join(OUT, id + ".jpg");
+    await page.locator("#" + id).screenshot({ path: file, type: "jpeg", quality: 92 });
     const { width, height } = await page.locator("#" + id).boundingBox();
-    console.log(`✓ ${id}.png  ${width}×${height}`);
+    console.log(`✓ ${id}.jpg  ${width}×${height}`);
   }
 
   console.log(`\n${ids.length} Motive exportiert nach ${OUT}`);
