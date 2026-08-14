@@ -1,6 +1,11 @@
-# Fotos für die Creatives
+# Werkstatt-Fotos
 
-Die fünf Werkstatt-Fotos liegen hier und sind in den Motiven eingebunden:
+Zentraler Bildordner – genutzt von **beidem**: der Karriereseite (`index.html`)
+und den Anzeigen-Motiven (`creatives/`).
+
+## Originale
+
+Die fünf Fotos und ihre Verwendung in den Anzeigen-Motiven:
 
 | Datei | Motiv | Verwendet in |
 |---|---|---|
@@ -10,9 +15,23 @@ Die fünf Werkstatt-Fotos liegen hier und sind in den Motiven eingebunden:
 | `messtechnik-keyence.jpg` | Kollege am Keyence-Messgerät | `toleranz` |
 | `voreinstellgeraet.jpg` | Kollege am Werkzeug-Voreinstellgerät | `check` |
 
+## Web-Versionen (`web/`)
+
+Für die Website liegen verkleinerte Fassungen in `web/` – die Originale wären
+mit ~400 KB pro Bild zu schwer fürs Handy:
+
+| Datei | Verwendung | Größe |
+|---|---|---|
+| `index-c200-team-hero.jpg` | Textur hinter dem Hero | 1400 px breit, ~170 KB |
+| `*-860.jpg` | Bildstrecke „Hier arbeitest du" | 860 px breit, ~100 KB |
+
+Die Bildstrecke lädt verzögert (`loading="lazy"`), beim Seitenaufruf wird also
+nur das Hero-Bild geladen.
+
 ## Foto austauschen
 
-Datei unter demselben Namen ersetzen und im Ordner `creatives/` einmal
+Original unter demselben Namen ersetzen, die Web-Version in `web/` neu erzeugen
+(oder das Original verkleinert dort ablegen) und im Ordner `creatives/` einmal
 `node render.js` laufen lassen. Passt der Bildausschnitt danach nicht, das
 Feld `focus` (und optional `focusStory`) des Motivs in `index.html` anpassen –
 das ist eine CSS-`background-position`, also z. B. `"60% 30%"`: erst waagrecht,
@@ -28,6 +47,6 @@ jedem Motiv lesbar.
 
 ## Bildrechte
 
-Auf allen Fotos sind Mitarbeitende erkennbar. Vor dem Anzeigenstart bitte die
-schriftliche Einwilligung der abgebildeten Personen zur werblichen Nutzung
-einholen.
+Auf allen Fotos sind Mitarbeitende erkennbar – sie erscheinen sowohl in den
+Anzeigen als auch auf der Karriereseite. Vor dem Start bitte die schriftliche
+Einwilligung der abgebildeten Personen zur werblichen Nutzung einholen.

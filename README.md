@@ -8,12 +8,25 @@ keine Abhängigkeiten. Einfach per GitHub Pages ausliefern.
 
 ---
 
+## Fotos
+
+Die Werkstatt-Fotos liegen zentral in [`fotos/`](fotos/) und werden doppelt
+genutzt: als Textur hinter dem Hero und als Bildstrecke „Hier arbeitest du"
+auf der Seite, sowie als Motive der Anzeigen-Creatives. Für die Seite kommen
+die verkleinerten Fassungen aus `fotos/web/` zum Einsatz (Bildstrecke lädt
+verzögert nach).
+
+---
+
 ## Ablauf für Bewerber
 
 1. **Hero + Mini-Check** – Frage 1 ist sofort sichtbar (auch mobil, ohne Scrollen)
 2. **5 Fragen** zur Vorqualifizierung (ca. 60 Sekunden)
 3. **Kontaktformular** inkl. Match-Ergebnis und optionalem Lebenslauf-Upload
 4. **Danke-Screen** mit den nächsten Schritten
+
+Darunter: Stelle im Detail, Bildstrecke aus der Halle und ein zweiter
+Einstieg in den Check.
 
 Wer die Knockout-Kriterien nicht erfüllt, landet auf einem freundlichen
 Absage-Screen – **und wird nicht als Lead übertragen**.

@@ -201,6 +201,18 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     linear-gradient(155deg, #00b8a9 0%, var(--teal) 48%, #00817a 100%);
   color: #effbf9;
 }
+/* Werkstatt-Foto als Textur hinter dem Hero – schafft den optischen Anschluss
+   an die Anzeige. Graustufen + Luminanz-Blend, damit das Türkis führend bleibt. */
+.hero__photo {
+  position: absolute; inset: 0; z-index: 0;
+  background-image: url("fotos/web/index-c200-team-hero.jpg");
+  background-size: cover;
+  background-position: 62% 26%;
+  filter: grayscale(1) contrast(1.1) brightness(.75);
+  mix-blend-mode: luminosity;
+  opacity: .18;
+  pointer-events: none;
+}
 .hero::after {
   content: "";
   position: absolute; inset: 0;
@@ -615,6 +627,38 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   padding-top: 24px; font-size: 13px; color: #8b9997;
 }
 
+/* Bildstrecke „Hier arbeitest du" ------------------------------------- */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(12px, 1.6vw, 20px);
+}
+.shot-card {
+  position: relative; margin: 0;
+  border-radius: var(--radius-lg); overflow: hidden;
+  background: var(--surface-2);
+  box-shadow: var(--shadow-sm);
+  grid-column: span 2;
+}
+.shot-card:nth-child(1), .shot-card:nth-child(2) { grid-column: span 3; }
+.shot-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  object-position: center 28%;
+  aspect-ratio: 4 / 5;
+  transition: transform .5s cubic-bezier(.16,1,.3,1);
+}
+/* Die beiden großen Kacheln liegen quer, die drei kleinen hoch –
+   dadurch sind beide Reihen etwa gleich hoch. */
+.shot-card:nth-child(1) img, .shot-card:nth-child(2) img { aspect-ratio: 5 / 4; }
+.shot-card:hover img { transform: scale(1.04); }
+.shot-card figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 46px 20px 18px;
+  font-size: 15px; font-weight: 600; line-height: 1.35; color: #fff;
+  background: linear-gradient(180deg, rgba(15,32,30,0) 0%, rgba(15,32,30,.86) 65%, rgba(15,32,30,.95) 100%);
+}
+.gallery__note { margin-top: 18px; text-align: center; font-size: 14px; color: var(--muted); }
+
 /* Scroll-Reveal (nur mit JS, damit ohne JS nichts unsichtbar bleibt) ---- */
 .js .reveal { opacity: 0; transform: translateY(16px); }
 .js .reveal.is-in {
@@ -683,6 +727,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
   .trust__inner { grid-template-columns: 1fr 1fr; }
   .form-grid { grid-template-columns: 1fr; }
+  /* Bildstrecke mobil zweispaltig – fünf Hochformate untereinander wären zu lang */
+  .gallery__grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .shot-card, .shot-card:nth-child(1), .shot-card:nth-child(2) { grid-column: span 1; }
+  .shot-card:nth-child(1) { grid-column: span 2; }
+  .shot-card:nth-child(1) img { aspect-ratio: 16 / 10; }
+  .shot-card:nth-child(2) img { aspect-ratio: 4 / 5; }
+  .shot-card figcaption { font-size: 13px; padding: 34px 13px 12px; }
   .footer__grid { grid-template-columns: 1fr; gap: 28px; }
   .money__card { flex-direction: column; text-align: center; gap: 16px; }
 
@@ -761,6 +812,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
   <!-- HERO + MINI-CHECK (sofort aktiv) -->
   <section class="hero">
+    <div class="hero__photo" aria-hidden="true"></div>
     <div class="shell hero__inner">
       <div class="hero__intro">
         <div class="hero__badges" id="heroBadges"><!-- JS --></div>
@@ -849,6 +901,49 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
         <span class="cols-cta__hint">Kurzer Mini-Check vorab – damit beide Seiten direkt wissen, ob es passt.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BILDSTRECKE: echte Werkstatt statt Stockfotos -->
+  <section class="section" id="einblick">
+    <div class="shell">
+      <div class="section-head reveal">
+        <span class="eyebrow eyebrow--center">Einblick</span>
+        <h2>Hier arbeitest du</h2>
+        <p>Keine Stockfotos: unsere Kollegen, unsere Maschinen, unsere Halle in Balgheim.</p>
+      </div>
+
+      <div class="gallery__grid">
+        <figure class="shot-card reveal">
+          <img src="fotos/web/index-c200-4d-860.jpg" alt="Kollege an der INDEX C200-4D" loading="lazy" decoding="async" />
+          <figcaption>An der INDEX C200-4D: rüsten, einfahren, laufen lassen.</figcaption>
+        </figure>
+        <figure class="shot-card reveal reveal--d1">
+          <img src="fotos/web/index-c200-team-860.jpg" alt="Zwei Kollegen am Touchpanel der INDEX C200" loading="lazy" decoding="async" />
+          <figcaption>Neues Programm? Wird gemeinsam am Panel durchgegangen.</figcaption>
+        </figure>
+        <figure class="shot-card reveal">
+          <img src="fotos/web/messtechnik-keyence-860.jpg" alt="Kollege am Messplatz" loading="lazy" decoding="async" />
+          <figcaption>Werkerselbstkontrolle: Maße direkt am Messplatz geprüft.</figcaption>
+        </figure>
+        <figure class="shot-card reveal reveal--d1">
+          <img src="fotos/web/voreinstellgeraet-860.jpg" alt="Kollege am Werkzeug-Voreinstellgerät" loading="lazy" decoding="async" />
+          <figcaption>Werkzeuge werden voreingestellt, bevor sie in die Maschine gehen.</figcaption>
+        </figure>
+        <figure class="shot-card reveal reveal--d2">
+          <img src="fotos/web/werkzeugausgabe-860.jpg" alt="Kollege an der Werkzeugausgabe" loading="lazy" decoding="async" />
+          <figcaption>Werkzeug per Knopfdruck – ohne Zettelwirtschaft.</figcaption>
+        </figure>
+      </div>
+
+      <p class="gallery__note">Aufgenommen bei Dreher in Balgheim.</p>
+
+      <div class="cols-cta reveal">
+        <a href="#bewerbung" class="btn btn--primary btn--lg">
+          Passt das zu dir? 60-Sekunden-Check
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   </section>

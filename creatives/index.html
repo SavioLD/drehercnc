@@ -137,7 +137,7 @@ h1 .box {
 <script>
 /* ==========================================================================
    MOTIVE
-   photo  → Dateiname in creatives/fotos/ (fehlt sie, greift die Markenfläche)
+   photo  → Dateiname in fotos/ (Repo-Wurzel, wird auch von der Website genutzt) (fehlt sie, greift die Markenfläche)
    focus  → Bildausschnitt (CSS background-position). Die Person soll im oberen,
             hellen Teil sitzen – unten liegt der Textblock im abgedunkelten Bereich.
    focusStory → abweichender Ausschnitt fürs Hochformat (optional)
@@ -244,7 +244,7 @@ function canvas(c, format) {
   return `<figure class="wrap">
     <figcaption>${c.id} <span>· ${story ? "Story 1080×1920" : "Feed 1080×1350"} · ?v=${c.v}</span></figcaption>
     <div class="canvas${story ? " canvas--story" : ""}" id="${c.id}-${format}">
-      <div class="shot" style="background-image:url('fotos/${c.photo}');background-position:${(story && c.focusStory) || c.focus || "center"}"></div>
+      <div class="shot" style="background-image:url('../fotos/${c.photo}');background-position:${(story && c.focusStory) || c.focus || "center"}"></div>
       <div class="duo"></div>
       <div class="hatch"></div>
       <div class="scrim"></div>

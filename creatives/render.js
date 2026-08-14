@@ -8,7 +8,7 @@
                   JPEG statt PNG, weil die Motive fotografisch sind – Meta
                   rechnet ohnehin neu und die Dateien bleiben handlich.
 
-   Die Fotos gehören nach creatives/fotos/ (Dateinamen siehe fotos/README.md).
+   Die Fotos liegen in fotos/ (Repo-Wurzel) – Zuordnung siehe fotos/README.md.
    Fehlt ein Foto, rendert das Motiv auf der türkisen Markenfläche – die
    Datei ist trotzdem verwendbar, wirkt aber ohne Werkstatt-Bezug.
    ========================================================================== */
