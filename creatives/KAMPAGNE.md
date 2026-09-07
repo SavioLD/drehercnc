@@ -42,161 +42,83 @@ Targeting eingeschränkter – dann den Radius großzügiger setzen.
 
 ---
 
-## Die sechs Anzeigen
+## Anzeigentexte
 
-Für jedes Motiv: Bilddateien, Primärtext, Überschrift, Beschreibung, Button
-und Link. Der Link enthält bereits die passende Landingpage-Variante (`?v=`)
-und die UTM-Parameter zur Auswertung.
+Die Texte sind **bildunabhängig** formuliert: jeder Primärtext passt zu jedem
+der sechs Motive. So lassen sie sich in Metas dynamischen Creatives frei
+kombinieren – du hinterlegst alle Varianten einmal, Meta mischt und findet die
+beste Kombination selbst.
 
----
+### Primärtext – 3 Varianten
 
-### 1 · ZSM_toleranz
-
-**Bilder:** `export/toleranz-feed.jpg` · `export/toleranz-story.jpg`
-
-**Primärtext**
+**A · Handwerk**
 > Ein Hundertstel zu viel und das Teil ist Schrott.
 >
-> Wer das kennt, kennt auch das andere Gefühl: wenn das Maß sitzt und die
-> Serie sauber durchläuft. Genau dafür fertigen wir in Balgheim
-> Präzisionsdrehteile – komplexe Teile, keine Massenware.
+> Wer das kennt, kennt auch das andere Gefühl: wenn das Maß sitzt und die Serie
+> sauber durchläuft. Genau dafür fertigen wir in Balgheim Präzisionsdrehteile –
+> komplexe Teile statt Massenware, an INDEX-Drehautomaten, im Team von 19.
 >
 > 5 Fragen, 60 Sekunden. Danach weißt du, ob es passt.
 
-**Überschrift:** Zerspanungsmechaniker (m/w/d)
-**Beschreibung:** Balgheim · ohne Anschreiben bewerben
-**Button:** Mehr dazu
-
-```
-https://saviold.github.io/drehercnc/?v=fit&utm_source=meta&utm_medium=paid&utm_campaign=zerspaner&utm_content=toleranz
-```
-
----
-
-### 2 · ZSM_team
-
-**Bilder:** `export/team-feed.jpg` · `export/team-story.jpg`
-
-**Primärtext**
-> Wir sind 19.
+**B · Kein Konzern**
+> Wir sind 19. Da leitet keine Abteilung etwas weiter – da fragst du den
+> Kollegen zwei Maschinen weiter.
 >
-> Da gibt es keine Abteilung, die etwas „weiterleitet" – da fragst du den
-> Kollegen zwei Maschinen weiter. Entscheidungen fallen an der Maschine,
-> nicht in der dritten Instanz.
+> Entscheidungen fallen an der Maschine. Werkzeug ziehst du per Knopfdruck,
+> nicht per Antrag. Und der Weg zum Chef ist zwanzig Meter lang.
 >
-> Wenn du das einem Konzern vorziehst: kurz prüfen, ob es passt.
+> Wenn dir das lieber ist als eine Personalnummer: kurz prüfen, ob es passt.
 
-**Überschrift:** 19 Kollegen. Und bald 20?
-**Beschreibung:** Zerspanungsmechaniker (m/w/d) · Balgheim
-**Button:** Mehr dazu
-
-```
-https://saviold.github.io/drehercnc/?v=team&utm_source=meta&utm_medium=paid&utm_campaign=zerspaner&utm_content=team
-```
-
----
-
-### 3 · ZSM_index
-
-**Bilder:** `export/index-feed.jpg` · `export/index-story.jpg`
-
-**Primärtext**
-> C200, C200-4D – unsere Maschinen stehen.
->
-> Was fehlt, ist jemand, der sie rüstet, einfährt und rausholt, was
-> drinsteckt. Erfahrung an INDEX ist ideal, andere CNC-Drehmaschinen gehen
-> genauso – einschulen können wir.
->
-> Der Check dauert keine Minute.
-
-**Überschrift:** Erfahrung an INDEX-Drehautomaten?
-**Beschreibung:** Zerspanungsmechaniker (m/w/d) · Balgheim
-**Button:** Mehr dazu
-
-```
-https://saviold.github.io/drehercnc/?v=fit&utm_source=meta&utm_medium=paid&utm_campaign=zerspaner&utm_content=index
-```
-
----
-
-### 4 · ZSM_check
-
-**Bilder:** `export/check-feed.jpg` · `export/check-story.jpg`
-
-**Primärtext**
+**C · Ohne Hürde**
 > Kein Anschreiben. Kein Lebenslauf-Zwang.
 >
 > 5 Fragen, 60 Sekunden – danach weißt du, ob die Stelle als
-> Zerspanungsmechaniker bei uns zu dir passt. Und wir wissen es auch.
+> Zerspanungsmechaniker in Balgheim zu dir passt. Und wir wissen es auch. Passt
+> es, melden wir uns innerhalb von 2 Werktagen.
 >
-> Passt es, melden wir uns innerhalb von 2 Werktagen.
+> Raum Tuttlingen, Spaichingen, Trossingen: dein Arbeitsweg wird kurz.
 
-**Überschrift:** Bewerben ohne Anschreiben
-**Beschreibung:** Zerspanungsmechaniker (m/w/d) · Balgheim
-**Button:** Jetzt bewerben
+### Überschrift – 3 Varianten
+
+1. `Zerspanungsmechaniker (m/w/d)`
+2. `19 Kollegen. Und bald 20?`
+3. `Bewerben ohne Anschreiben`
+
+### Beschreibung – 3 Varianten
+
+1. `Balgheim · Kreis Tuttlingen`
+2. `60-Sekunden-Check, kein Lebenslauf nötig`
+3. `Präzisionsdrehteile an INDEX-Drehautomaten`
+
+### Button
+
+`Mehr dazu` – oder `Jetzt bewerben`, wenn Überschrift 3 läuft.
+
+### Link
+
+Bei gemischten Creatives ein Link für alle Anzeigen:
 
 ```
-https://saviold.github.io/drehercnc/?v=fit&utm_source=meta&utm_medium=paid&utm_campaign=zerspaner&utm_content=check
+https://saviold.github.io/drehercnc/?v=fit&utm_source=meta&utm_medium=paid&utm_campaign=zerspaner&utm_content=mix
 ```
+
+Wer die Motive lieber einzeln als eigene Anzeigen aufsetzt, nimmt pro Motiv die
+passende Variante – `team` und `buerokratie` auf `?v=team`, `region` auf
+`?v=region`, der Rest auf `?v=fit` – und setzt `utm_content` auf den Motivnamen.
+Dann steht in LeadTable in der Spalte `Kampagne`, welches Motiv gezogen hat.
 
 ---
 
-### 5 · ZSM_buerokratie
+## Bilddateien
 
-**Bilder:** `export/buerokratie-feed.jpg` · `export/buerokratie-story.jpg`
-
-**Primärtext**
-> Werkzeug ziehst du dir per Knopfdruck aus dem Automaten.
->
-> Keine Zettelwirtschaft, keine drei Unterschriften. Bei 19 Leuten
-> entscheidest du an der Maschine – und wenn etwas fehlt, ist der Weg zum
-> Chef zwanzig Meter lang.
->
-> Klingt nach deinem Arbeitsalltag? Dann schau kurz, ob es passt.
-
-**Überschrift:** Werkstatt statt Verwaltung
-**Beschreibung:** Zerspanungsmechaniker (m/w/d) · Balgheim
-**Button:** Mehr dazu
-
-```
-https://saviold.github.io/drehercnc/?v=team&utm_source=meta&utm_medium=paid&utm_campaign=zerspaner&utm_content=buerokratie
-```
-
----
-
-### 6 · ZSM_region
-
-**Bilder:** `export/region-feed.jpg` · `export/region-story.jpg`
-
-**Primärtext**
-> Balgheim, Kreis Tuttlingen.
->
-> Wenn du aus der Ecke kommst, ist dein Arbeitsweg ab sofort kurz – und die
-> Teile sind anspruchsvoller als am Band. Präzisionsdrehteile, schwer
-> zerspanbare Werkstoffe, überschaubares Team.
->
-> 60 Sekunden, dann weißt du, ob es passt.
-
-**Überschrift:** Zerspaner aus dem Raum Tuttlingen?
-**Beschreibung:** Zerspanungsmechaniker (m/w/d) · Balgheim
-**Button:** Mehr dazu
-
-```
-https://saviold.github.io/drehercnc/?v=region&utm_source=meta&utm_medium=paid&utm_campaign=zerspaner&utm_content=region
-```
-
----
-
-## Kurzfassung als Tabelle
-
-| Anzeige | Überschrift | Button | Variante |
-|---|---|---|---|
-| ZSM_toleranz | Zerspanungsmechaniker (m/w/d) | Mehr dazu | `?v=fit` |
-| ZSM_team | 19 Kollegen. Und bald 20? | Mehr dazu | `?v=team` |
-| ZSM_index | Erfahrung an INDEX-Drehautomaten? | Mehr dazu | `?v=fit` |
-| ZSM_check | Bewerben ohne Anschreiben | Jetzt bewerben | `?v=fit` |
-| ZSM_buerokratie | Werkstatt statt Verwaltung | Mehr dazu | `?v=team` |
-| ZSM_region | Zerspaner aus dem Raum Tuttlingen? | Mehr dazu | `?v=region` |
+| Motiv | Feed 4:5 | Story 9:16 |
+|---|---|---|
+| toleranz | `export/toleranz-feed.jpg` | `export/toleranz-story.jpg` |
+| team | `export/team-feed.jpg` | `export/team-story.jpg` |
+| index | `export/index-feed.jpg` | `export/index-story.jpg` |
+| check | `export/check-feed.jpg` | `export/check-story.jpg` |
+| buerokratie | `export/buerokratie-feed.jpg` | `export/buerokratie-story.jpg` |
+| region | `export/region-feed.jpg` | `export/region-story.jpg` |
 
 ---
 
