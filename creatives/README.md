@@ -6,6 +6,10 @@ und bewusst **ohne** das übliche „Wir suchen ab sofort …“.
 
 Die fertigen Dateien liegen in [`export/`](export/) – direkt verwendbar.
 
+**Zum Einrichten der Kampagne:** [`KAMPAGNE.md`](KAMPAGNE.md) enthält für jedes
+Motiv Primärtext, Überschrift, Beschreibung, Button und den fertigen Link mit
+UTM-Parametern – plus Struktur- und Targeting-Vorschlag.
+
 ## Neu erzeugen
 
 ```bash

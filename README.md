@@ -134,6 +134,9 @@ Die fertigen Dateien liegen in [`creatives/export/`](creatives/export/), die
 Werkstatt-Fotos sind eingebunden. Übersicht aller Motive:
 [`creatives/uebersicht.jpg`](creatives/uebersicht.jpg).
 
+Alle Anzeigentexte, Buttons und fertigen Links zum Einrichten:
+[`creatives/KAMPAGNE.md`](creatives/KAMPAGNE.md).
+
 Nach einer Text- oder Fotoänderung neu erzeugen:
 
 ```bash
