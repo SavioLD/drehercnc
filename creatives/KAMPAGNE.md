@@ -49,9 +49,9 @@ der sechs Motive. So lassen sie sich in Metas dynamischen Creatives frei
 kombinieren – du hinterlegst alle Varianten einmal, Meta mischt und findet die
 beste Kombination selbst.
 
-### Primärtext – 3 Varianten
+### Primärtext – 3 Varianten (lang)
 
-**A · Handwerk**
+**Variante 1 · Handwerk**
 > Ein Hundertstel zu viel und das Teil ist Schrott.
 >
 > Wer das kennt, kennt auch das andere Gefühl: wenn das Maß sitzt und die Serie
@@ -60,7 +60,7 @@ beste Kombination selbst.
 >
 > 5 Fragen, 60 Sekunden. Danach weißt du, ob es passt.
 
-**B · Kein Konzern**
+**Variante 2 · Kein Konzern**
 > Wir sind 19. Da leitet keine Abteilung etwas weiter – da fragst du den
 > Kollegen zwei Maschinen weiter.
 >
@@ -69,7 +69,7 @@ beste Kombination selbst.
 >
 > Wenn dir das lieber ist als eine Personalnummer: kurz prüfen, ob es passt.
 
-**C · Ohne Hürde**
+**Variante 3 · Ohne Hürde**
 > Kein Anschreiben. Kein Lebenslauf-Zwang.
 >
 > 5 Fragen, 60 Sekunden – danach weißt du, ob die Stelle als
@@ -77,6 +77,23 @@ beste Kombination selbst.
 > es, melden wir uns innerhalb von 2 Werktagen.
 >
 > Raum Tuttlingen, Spaichingen, Trossingen: dein Arbeitsweg wird kurz.
+
+### Primärtext – 3 Varianten (kurz)
+
+Meta blendet mobil nach etwa zwei Zeilen „Mehr anzeigen" ein. Diese Fassungen
+transportieren die Aussage vollständig, bevor abgeschnitten wird.
+
+**Variante 1 · Handwerk**
+> Ein Hundertstel zu viel und das Teil ist Schrott. Wenn dich das reizt statt
+> nervt: 5 Fragen, 60 Sekunden – dann weißt du, ob es passt.
+
+**Variante 2 · Kein Konzern**
+> 19 Kollegen, keine Personalnummer. Entscheidungen fallen bei uns an der
+> Maschine. Passt das zu dir? 60 Sekunden, dann weißt du es.
+
+**Variante 3 · Ohne Hürde**
+> Kein Anschreiben, kein Lebenslauf-Zwang. 5 Fragen zur Stelle als
+> Zerspanungsmechaniker in Balgheim – in 60 Sekunden erledigt.
 
 ### Überschrift – 3 Varianten
 
