@@ -49,51 +49,70 @@ der sechs Motive. So lassen sie sich in Metas dynamischen Creatives frei
 kombinieren – du hinterlegst alle Varianten einmal, Meta mischt und findet die
 beste Kombination selbst.
 
-### Primärtext – 3 Varianten (lang)
+### Primärtext – 3 Varianten (ausführlich)
 
 **Variante 1 · Handwerk**
 > Ein Hundertstel zu viel und das Teil ist Schrott.
 >
-> Wer das kennt, kennt auch das andere Gefühl: wenn das Maß sitzt und die Serie
-> sauber durchläuft. Genau dafür fertigen wir in Balgheim Präzisionsdrehteile –
-> komplexe Teile statt Massenware, an INDEX-Drehautomaten, im Team von 19.
+> Wer schon mal eine Serie zurückgenommen hat, weil das Maß gewandert ist,
+> weiß: Zerspanung ist kein Knöpfchendrücken. Das ist Erfahrung, Gefühl für die
+> Maschine und die Geduld, noch einmal nachzumessen, bevor die Nacht durchläuft.
 >
-> 5 Fragen, 60 Sekunden. Danach weißt du, ob es passt.
+> Genau solche Leute suchen wir. Wir sind die Dreher Präzisionsdrehteile GmbH
+> in Balgheim und fertigen CNC-Dreh- und Frästeile – oft in kleinen Serien, oft
+> aus Werkstoffen, die sich wehren. Massenware macht bei uns keiner.
+>
+> Was dich erwartet: INDEX-Drehautomaten (C200, C200-4D), eigene Verantwortung
+> an deiner Maschine, Voreinstellgerät und Messplatz gleich daneben. Und ein
+> Team von 19, in dem man sich beim Vornamen kennt.
+>
+> Was du mitbringst: eine abgeschlossene Ausbildung als Zerspanungs- oder
+> Industriemechaniker, Deutsch auf mindestens B1 und einen Führerschein.
+> INDEX-Erfahrung ist ideal – andere CNC-Drehmaschinen reichen auch,
+> einschulen können wir.
+>
+> Der schnellste Weg zu uns: 5 Fragen, 60 Sekunden. Danach weißt du, ob es
+> passt – und wir auch. Ganz ohne Anschreiben.
 
 **Variante 2 · Kein Konzern**
-> Wir sind 19. Da leitet keine Abteilung etwas weiter – da fragst du den
-> Kollegen zwei Maschinen weiter.
+> Wir sind 19. Das merkst du an jedem Arbeitstag.
 >
-> Entscheidungen fallen an der Maschine. Werkzeug ziehst du per Knopfdruck,
-> nicht per Antrag. Und der Weg zum Chef ist zwanzig Meter lang.
+> Es gibt keine Abteilung, die deine Frage „weiterleitet". Wenn du etwas wissen
+> willst, fragst du den Kollegen zwei Maschinen weiter. Wenn du Werkzeug
+> brauchst, ziehst du es per Knopfdruck aus dem Automaten – keine Anträge,
+> keine Zettelwirtschaft. Und wenn eine Entscheidung ansteht, fällt sie an der
+> Maschine, nicht drei Ebenen höher.
 >
-> Wenn dir das lieber ist als eine Personalnummer: kurz prüfen, ob es passt.
+> Dafür kannst du dich bei uns auch nicht hinter einer Personalnummer
+> verstecken. Deine Teile tragen deine Handschrift, und das sieht jeder.
+>
+> Wir sind die Dreher Präzisionsdrehteile GmbH in Balgheim, Kreis Tuttlingen.
+> Wir fertigen Präzisionsdrehteile auf INDEX-Drehautomaten – komplexe Teile,
+> kleine Serien, gern auch schwer zerspanbare Werkstoffe. Wer bei uns anfängt,
+> bleibt meist eine Weile.
+>
+> Wenn du gelernter Zerspanungs- oder Industriemechaniker bist und lieber im
+> überschaubaren Team arbeitest als im Konzern: 5 Fragen, 60 Sekunden. Danach
+> weißt du, ob es passt.
 
 **Variante 3 · Ohne Hürde**
-> Kein Anschreiben. Kein Lebenslauf-Zwang.
+> Wir wissen, warum sich viele nicht bewerben: keine Lust auf Anschreiben.
 >
-> 5 Fragen, 60 Sekunden – danach weißt du, ob die Stelle als
-> Zerspanungsmechaniker in Balgheim zu dir passt. Und wir wissen es auch. Passt
-> es, melden wir uns innerhalb von 2 Werktagen.
+> Deshalb haben wir es weggelassen. Kein Motivationsschreiben, kein
+> Lebenslauf-Zwang, kein Bewerbungsportal mit Passwort. Stattdessen 5 Fragen zu
+> dem, worauf es wirklich ankommt: Ausbildung, Erfahrung an der Drehmaschine,
+> Deutsch, Führerschein. Das dauert 60 Sekunden – am Handy, in der Pause.
 >
-> Raum Tuttlingen, Spaichingen, Trossingen: dein Arbeitsweg wird kurz.
-
-### Primärtext – 3 Varianten (kurz)
-
-Meta blendet mobil nach etwa zwei Zeilen „Mehr anzeigen" ein. Diese Fassungen
-transportieren die Aussage vollständig, bevor abgeschnitten wird.
-
-**Variante 1 · Handwerk**
-> Ein Hundertstel zu viel und das Teil ist Schrott. Wenn dich das reizt statt
-> nervt: 5 Fragen, 60 Sekunden – dann weißt du, ob es passt.
-
-**Variante 2 · Kein Konzern**
-> 19 Kollegen, keine Personalnummer. Entscheidungen fallen bei uns an der
-> Maschine. Passt das zu dir? 60 Sekunden, dann weißt du es.
-
-**Variante 3 · Ohne Hürde**
-> Kein Anschreiben, kein Lebenslauf-Zwang. 5 Fragen zur Stelle als
-> Zerspanungsmechaniker in Balgheim – in 60 Sekunden erledigt.
+> Passt es, melden wir uns innerhalb von 2 Werktagen. Passt es nicht, steht das
+> sofort auf dem Bildschirm und du hast keine Zeit verloren.
+>
+> Wir sind die Dreher Präzisionsdrehteile GmbH in Balgheim, Kreis Tuttlingen –
+> 19 Kollegen, INDEX-Drehautomaten, Präzisionsdrehteile statt Massenware. Wer
+> aus dem Raum Tuttlingen, Spaichingen oder Trossingen kommt, hat ab sofort
+> einen kurzen Arbeitsweg.
+>
+> Die Stelle: Zerspanungsmechaniker (m/w/d), abgeschlossene Ausbildung
+> vorausgesetzt. Los geht es mit einer einzigen Frage.
 
 ### Überschrift – 3 Varianten
 
