@@ -1132,6 +1132,13 @@ const JOBS = {
        scored:true  → fließt in den Match-Score ein (Optionen tragen "score" 0–2)
        scored:false → reine Info (z. B. Führerschein)
        option.ko:true → Knockout (sofortige Absage, kein Lead)               */
+    /* Vorqualifizierung.
+       - option.ko:true  → sofortige, freundliche Absage (kein Lead)
+       - minScore        → wer in der Summe darunter bleibt, wird ebenfalls
+                           freundlich abgelehnt. Das fängt die Fälle ab, in
+                           denen jede einzelne Antwort gerade so durchgeht,
+                           das Gesamtbild aber nicht passt.
+       Maximal erreichbar: 9 Punkte (2 + 2 + 3 + 2).                        */
     questions: [
       {
         short: "Ausbildung",
@@ -1161,41 +1168,38 @@ const JOBS = {
         ],
       },
       {
-        short: "Index-Erfahrung",
-        q: "Hast du schon an INDEX-Drehautomaten gearbeitet?",
-        help: "Kein Muss – wenn du CNC-Drehen kannst, schulen wir dich auf unseren Maschinen ein.",
+        // Fasst Maschinen-Erfahrung und Rüsten in einer Frage zusammen –
+        // beides zusammen sagt mehr aus als zwei getrennte Fragen.
+        short: "CNC-Erfahrung",
+        q: "Wie viel Erfahrung hast du an CNC-Drehmaschinen?",
+        help: "Wir arbeiten an INDEX-Drehautomaten – auf andere Fabrikate schulen wir dich ein.",
         scored: true,
         key: true,
         options: [
-          { label: "Ja – INDEX rüsten und programmieren", score: 2 },
-          { label: "Ja – INDEX bedienen", score: 2 },
-          { label: "Nein – aber an anderen CNC-Drehmaschinen", score: 1 },
+          { label: "INDEX – rüsten und programmieren", score: 3 },
+          { label: "Andere CNC-Drehmaschinen – rüsten und programmieren", score: 2 },
+          { label: "CNC-Drehmaschinen bedienen", score: 1 },
           { label: "Noch keine CNC-Dreherfahrung", score: 0 },
-        ],
-      },
-      {
-        short: "Rüsten & Programmieren",
-        q: "Kannst du Maschinen selbstständig rüsten und einfahren?",
-        help: "Bei uns arbeitest du eigenverantwortlich an deiner Maschine.",
-        scored: true,
-        options: [
-          { label: "Ja, inkl. Programmanpassungen", score: 2 },
-          { label: "Rüsten ja – Programmieren mit Unterstützung", score: 1 },
-          { label: "Noch nicht – ich bediene bisher", score: 0 },
         ],
       },
       {
         short: "Führerschein",
         q: "Hast du einen Führerschein (Klasse B)?",
-        help: "Unser Standort ist mit dem Auto am besten zu erreichen.",
-        scored: false,
+        help: "Unser Standort in Balgheim ist mit dem Auto am besten zu erreichen.",
+        scored: true,
         options: [
-          { label: "Ja – mit eigenem Fahrzeug", score: 0 },
-          { label: "Ja – ohne eigenes Fahrzeug", score: 0 },
+          { label: "Ja – mit eigenem Fahrzeug", score: 2 },
+          { label: "Ja – ohne eigenes Fahrzeug", score: 1 },
           { label: "Nein", score: 0 },
         ],
       },
     ],
+
+    /* Mindestpunktzahl für eine Bewerbung (von 9 möglichen).
+       Beispiele: Zerspaner + B2 ohne CNC-Praxis und ohne Führerschein = 4 → geht durch.
+                  Andere Metall-Ausbildung + B1 ohne CNC-Praxis, kein Führerschein = 2 → Absage.
+       Höher setzen = strenger filtern.                                      */
+    minScore: 4,
   },
 
   /* ===== VORLAGE für weitere Stellen – auf active:true setzen & ausfüllen =====
@@ -1475,6 +1479,19 @@ function renderFunnel() {
     return;
   }
   if (state.pos === N + 1) {
+    // Gesamtbild prüfen: Wer jede Frage gerade so beantwortet hat, kommt in
+    // der Summe trotzdem nicht durch – dann freundlich absagen statt Lead.
+    const m = computeMatch();
+    if (!m.passes) {
+      state.rejected = true;
+      state.koReason = "";      // keine einzelne Voraussetzung, sondern die Summe
+      state.koFromPos = N;      // "Antwort ändern" führt zur letzten Frage
+      setBar(100);
+      updateHint();
+      body.innerHTML = renderReject();
+      bindReject();
+      return;
+    }
     body.innerHTML = renderForm();
     bindForm();
     return;
@@ -1553,13 +1570,18 @@ function bindQuestion() {
 /* ----- Absage (Knockout) ----- */
 function renderReject() {
   const j = state.job;
+  // Mit koReason: eine konkrete Voraussetzung fehlt (Ausbildung, Deutsch).
+  // Ohne: die Summe der Angaben reicht nicht – dann allgemeiner formulieren.
+  const grund = state.koReason
+    ? `Für die Stelle als <strong>${esc(j.title)}</strong> setzen wir <strong>${esc(state.koReason)}</strong> voraus.`
+    : `Nach deinen Angaben fehlt für die Stelle als <strong>${esc(j.title)}</strong> in der Summe noch zu viel Praxis.`;
   return `<div class="step reject">
     <div class="reject__ic">
       <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z"/><path d="M9 12h6"/></svg>
     </div>
     <h3>Vielen Dank für dein Interesse!</h3>
-    <p>Diesmal hat es leider noch nicht ganz gepasst: Für die Stelle als <strong>${esc(j.title)}</strong> setzen wir <strong>${esc(state.koReason)}</strong> voraus.</p>
-    <p class="reject__soft">Vielleicht klappt es zu einem späteren Zeitpunkt oder bei einer anderen Position – schau gerne wieder vorbei.</p>
+    <p>Diesmal hat es leider noch nicht ganz gepasst: ${grund}</p>
+    <p class="reject__soft">Das heißt nicht, dass du bei uns keine Chance hast – nur heute passt die Ausschreibung nicht. Wenn du dazulernst oder wir eine andere Position ausschreiben, schau gerne wieder vorbei.</p>
     <button type="button" class="funnel__back reject__back" data-fix>${ICON.back} Antwort ändern</button>
   </div>`;
 }
@@ -1576,21 +1598,26 @@ function bindReject() {
 function computeMatch() {
   const j = state.job;
   let score = 0, max = 0, criticalZero = false;
+  // Höchstpunktzahl je Frage aus den Optionen ableiten – so dürfen einzelne
+  // Fragen stärker gewichtet sein (die CNC-Frage zählt bis 3).
+  const qMax = (q) => q.options.reduce((m, o) => Math.max(m, o.score || 0), 0);
   j.questions.forEach((q) => {
     if (!q.scored) return;
-    max += 2;
+    max += qMax(q);
     const a = state.answers[q.short];
     const s = a ? a.score : 0;
     score += s;
     if (q.critical && s === 0) criticalZero = true;
   });
   const ratio = max ? score / max : 0;
+  const min = j.minScore || 0;
   let level, cls;
-  if (criticalZero) { level = "Bedingt geeignet"; cls = "ok"; }
+  if (score < min) { level = "Unter Mindestanforderung"; cls = "ok"; }
+  else if (criticalZero) { level = "Bedingt geeignet"; cls = "ok"; }
   else if (ratio >= 0.8) { level = "Top-Match"; cls = "top"; }
   else if (ratio >= 0.55) { level = "Guter Match"; cls = "good"; }
   else { level = "Entwicklungs-Kandidat"; cls = "ok"; }
-  return { score, max, level, cls, text: `${level} (${score}/${max})` };
+  return { score, max, min, passes: score >= min, level, cls, text: `${level} (${score}/${max})` };
 }
 
 /* ----- Formular ----- */

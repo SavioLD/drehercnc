@@ -71,7 +71,7 @@ beste Kombination selbst.
 > INDEX-Erfahrung ist ideal – andere CNC-Drehmaschinen reichen auch,
 > einschulen können wir.
 >
-> Der schnellste Weg zu uns: 5 Fragen, 60 Sekunden. Danach weißt du, ob es
+> Der schnellste Weg zu uns: 4 Fragen, keine Minute. Danach weißt du, ob es
 > passt – und wir auch. Ganz ohne Anschreiben.
 
 **Variante 2 · Kein Konzern**
@@ -92,14 +92,14 @@ beste Kombination selbst.
 > bleibt meist eine Weile.
 >
 > Wenn du gelernter Zerspanungs- oder Industriemechaniker bist und lieber im
-> überschaubaren Team arbeitest als im Konzern: 5 Fragen, 60 Sekunden. Danach
+> überschaubaren Team arbeitest als im Konzern: 4 Fragen, keine Minute. Danach
 > weißt du, ob es passt.
 
 **Variante 3 · Ohne Hürde**
 > Wir wissen, warum sich viele nicht bewerben: keine Lust auf Anschreiben.
 >
 > Deshalb haben wir es weggelassen. Kein Motivationsschreiben, kein
-> Lebenslauf-Zwang, kein Bewerbungsportal mit Passwort. Stattdessen 5 Fragen zu
+> Lebenslauf-Zwang, kein Bewerbungsportal mit Passwort. Stattdessen 4 Fragen zu
 > dem, worauf es wirklich ankommt: Ausbildung, Erfahrung an der Drehmaschine,
 > Deutsch, Führerschein. Das dauert 60 Sekunden – am Handy, in der Pause.
 >

@@ -41,7 +41,7 @@ als sechs Varianten derselben Aussage.
 | `toleranz` | Handwerksstolz statt Benefit-Liste | **0,01 mm** – zwischen gut und Ausschuss · „Manche nennen das Pingeligkeit. Wir nennen es Beruf." | Keyence-Messgerät |
 | `team` | Anti-Konzern | „19 Kollegen. Und bald **20**?" | Zwei am INDEX-Panel |
 | `index` | Maschine als Köder | „Deine nächste Maschine spricht **INDEX**." | INDEX C200-4D |
-| `check` | Die Bewerbungshürde selbst ist das Angebot | „5 Fragen. Dann weißt **du**, ob es passt." | Voreinstellgerät |
+| `check` | Die Bewerbungshürde selbst ist das Angebot | „4 Fragen. Dann weißt **du**, ob es passt." | Voreinstellgerät |
 | `buerokratie` | Alltag statt Floskel | „Werkzeug per Knopfdruck. Freigabe-Zettel: **keiner**." | Werkzeugausgabe |
 | `region` | Pendel-Argument | „Dein Arbeitsweg endet in **Balgheim**." | Zwei am INDEX-Panel |
 
@@ -94,7 +94,7 @@ nach ca. zwei Zeilen abschneidet.
 > dauert der Check keine Minute ↓
 
 **check**
-> Kein Anschreiben. Kein Lebenslauf-Zwang. 5 Fragen, 60 Sekunden – danach weißt
+> Kein Anschreiben. Kein Lebenslauf-Zwang. 4 Fragen, keine Minute – danach weißt
 > du, ob die Stelle als Zerspanungsmechaniker zu dir passt. Und wir wissen es
 > auch ↓
 

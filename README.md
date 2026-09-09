@@ -21,7 +21,7 @@ verzögert nach).
 ## Ablauf für Bewerber
 
 1. **Hero + Mini-Check** – Frage 1 ist sofort sichtbar (auch mobil, ohne Scrollen)
-2. **5 Fragen** zur Vorqualifizierung (ca. 60 Sekunden)
+2. **4 Fragen** zur Vorqualifizierung (ca. 40 Sekunden)
 3. **Kontaktformular** inkl. Match-Ergebnis und optionalem Lebenslauf-Upload
 4. **Danke-Screen** mit den nächsten Schritten
 
@@ -37,11 +37,23 @@ Absage-Screen – **und wird nicht als Lead übertragen**.
 
 | # | Frage | Wertung |
 |---|-------|---------|
-| 1 | Abgeschlossene Ausbildung im Metallbereich? | **Knockout** ohne Ausbildung als Zerspanungsmechaniker/in oder Industriemechaniker/in |
-| 2 | Wie gut sprichst du Deutsch? | **Knockout** unter Niveau B1 (A1–A2) |
-| 3 | Erfahrung an INDEX-Drehautomaten? | Punkte (kein Knockout) |
-| 4 | Maschinen selbstständig rüsten und einfahren? | Punkte |
-| 5 | Führerschein Klasse B? | reine Information |
+| 1 | Abgeschlossene Ausbildung im Metallbereich? | 0–2 Punkte · **Knockout** ohne Metall-Ausbildung |
+| 2 | Wie gut sprichst du Deutsch? | 0–2 Punkte · **Knockout** unter Niveau B1 |
+| 3 | Erfahrung an CNC-Drehmaschinen? | 0–3 Punkte (INDEX + Rüsten zählt am meisten) |
+| 4 | Führerschein Klasse B? | 0–2 Punkte |
+
+**Zwei Filter greifen nacheinander:**
+
+1. **Knockout** – wer keine Metall-Ausbildung hat oder Deutsch unter B1 angibt,
+   landet sofort auf dem Absage-Screen.
+2. **Mindestpunktzahl** (`minScore`, aktuell **4 von 9**) – wer jede Frage
+   gerade so beantwortet, kommt in der Summe trotzdem nicht durch und wird
+   ebenfalls freundlich abgelehnt. Beispiel: andere Metall-Ausbildung + B1 +
+   keine CNC-Erfahrung + kein Führerschein = 2 Punkte → Absage.
+
+In beiden Fällen wird **kein Lead übertragen**. Der Absage-Screen bleibt
+freundlich und bietet „Antwort ändern" an, damit ein Fehltipper nicht zur
+Absage führt. Strenger filtern: `minScore` höher setzen.
 
 Aus den gewerteten Fragen entsteht ein Match-Score
 (*Top-Match · Guter Match · Entwicklungs-Kandidat*), der mit jedem Lead übertragen wird.
