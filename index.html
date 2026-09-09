@@ -1909,54 +1909,45 @@ async function postWebhook(data) {
   const url = CONFIG.leadWebhookUrl;
   if (!url) return false;
   const j = state.job;
-  const lt = CONFIG.leadTable || {};
-  const lead = buildLead(data);
+  const m = computeMatch();
 
-  // Vollständige Bewerbung als Klartext. Landet in Beschreibung/Notiz und
-  // enthält alles – auch die Angaben, für die in LeadTable (noch) kein
-  // eigenes Feld angelegt ist.
-  const zusammenfassung = Object.entries(lead)
-    .map(([k, v]) => `${k}: ${v}`)
-    .join("\n");
-
-  // Die Feldnamen müssen exakt so heißen wie die Spalten in LeadTable –
-  // dort sind es "Name", "E-Mail" und "Telefonnummer". Zusätzlich die
-  // üblichen englischen Aliase, falls das Mapping darüber läuft.
-  const payload = Object.assign({}, lead, {
-    "Name": data.name,
-    "E-Mail": data.email || "",
-    "Telefonnummer": data.phone,
+  /* WICHTIG – genau EIN Schlüssel je LeadTable-Standardfeld.
+     LeadTable sammelt für Name, E-Mail und Telefon alle passenden Schlüssel
+     ein und hängt sie aneinander. Wer "Name" und "name" schickt, bekommt den
+     Namen doppelt; bei vier Telefon-Schlüsseln steht die Nummer viermal da.
+     Deshalb hier bewusst nur je ein Schlüssel – keine Aliase ergänzen!      */
+  const payload = {
     name: data.name,
     email: data.email || "",
     phone: data.phone,
-    telefon: data.phone,
-    zip: data.plz,
-    preferred_contact: data.contactPref || "Anruf",
-    job: `${j.title} ${j.gender}`,
-    variant: state.variant,
-    qualification: lead["Qualifikation"],
-    source: CONFIG.quelle,
-    // Damit nichts verloren geht, egal welche Felder gemappt sind
-    description: zusammenfassung,
-    message: zusammenfassung,
-    note: zusammenfassung,
-    customer_id: lt.customerId || "",
-    table_id: lt.tableId || "",
+  };
+
+  /* Alles Weitere unter sprechenden Namen. LeadTable zeigt davon nur, wofür
+     in der Tabelle ein Feld existiert (Lead-Ansicht → "Neues Feld
+     hinzufügen"). Der Feldname muss exakt so heißen wie der Schlüssel hier.
+     Wer sich das sparen will, legt nur das Feld "Bewerbung" an – darin steht
+     die komplette Bewerbung als Klartext.                                    */
+  const nachricht = ($("#fMsg") && $("#fMsg").value.trim()) || "";
+  const detail = {
+    "Stelle": `${j.title} ${j.gender}`,
+    "PLZ": data.plz,
+    "Wunsch-Kontakt": data.contactPref || "Anruf",
+    "Frühester Start": ($("#fStart") && $("#fStart").value) || "",
+    "Qualifikation": m.text,
+    "Kampagne": state.variant,
+    "Quelle": CONFIG.quelle,
+  };
+  if (nachricht) detail["Nachricht"] = nachricht;
+  j.questions.forEach((q) => {
+    detail[q.short] = (state.answers[q.short] || {}).label || "";
   });
 
-  // Antworten zusätzlich mit ASCII-Keys, damit sie sich in LeadTable leicht
-  // als eigene Spalten anlegen lassen.
-  const deumlaut = (x) => String(x).replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss");
-  const slug = (x) => deumlaut(x).toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
-  j.questions.forEach((q) => {
-    const v = (state.answers[q.short] || {}).label || "";
-    payload[q.short] = v;
-    payload["antwort_" + slug(q.short)] = v;
-  });
-  payload["Match-Score"] = lead["Qualifikation"];
-  payload["match_score"] = lead["Qualifikation"];
-  payload["Wunsch-Kontakt"] = data.contactPref || "Anruf";
-  payload["Kampagne"] = state.variant;
+  Object.assign(payload, detail);
+
+  // Komplette Bewerbung als Klartext – ein einziges Feld genügt, um alles zu sehen
+  payload["Bewerbung"] = Object.entries(detail)
+    .map(([k, v]) => `${k}: ${v}`)
+    .join("\n");
 
   /* Versand in zwei Stufen.
      1) application/json – das Format, das LeadTable erwartet. Der Browser

@@ -65,22 +65,37 @@ Aus den gewerteten Fragen entsteht ein Match-Score
 Jede Bewerbung geht **doppelt** raus, damit nichts verloren geht:
 
 1. **LeadTable** – als JSON (`application/json`) an den generischen Webhook
-   (`CONFIG.leadWebhookUrl`). Der Token in der URL enthält Tabelle, Kunde und
-   Agentur; die Leads landen in
-   `portal.lead-table.com/customer/6a71f059661192ffc3215ed6/table/6a71f064a9408391921a95d1/leads`.
-   Scheitert der CORS-Preflight, geht derselbe Datensatz formular-kodiert
-   raus – das löst keinen Preflight aus. Die Feldnamen heißen exakt wie die
-   Spalten in LeadTable (`Name`, `E-Mail`, `Telefonnummer`); zusätzlich läuft
-   die komplette Bewerbung als Klartext in `description` mit, damit auch ohne
-   angelegte Felder nichts verloren geht.
+   (`CONFIG.leadWebhookUrl`). Scheitert der CORS-Preflight, geht derselbe
+   Datensatz formular-kodiert raus – das löst keinen Preflight aus.
 2. **E-Mail** – über `formsubmit.co` an `CONFIG.leadEmail`
    (inkl. Lebenslauf als Anhang, falls hochgeladen)
 
-Übertragen werden u. a. Name, Telefon, Wunsch-Kontakt (Anruf/WhatsApp), PLZ,
-E-Mail, frühester Start, Nachricht, alle Antworten aus dem Mini-Check, der
-Match-Score sowie die Kampagnen-Variante (`?v=`). Die Antworten werden zusätzlich
-mit ASCII-Keys (`antwort_ausbildung`, `antwort_deutschkenntnisse`, …) mitgeschickt,
-damit sie sich in LeadTable leicht als Spalten mappen lassen.
+### Feldnamen – bitte nicht ergänzen
+
+LeadTable sammelt für **Name**, **E-Mail** und **Telefon** alle passenden
+Schlüssel ein und hängt sie aneinander. Werden `Name` und `name` gesendet,
+steht der Name doppelt im Feld; bei vier Telefon-Schlüsseln viermal die Nummer.
+Deshalb enthält der Payload bewusst **genau einen** Schlüssel je Standardfeld:
+`name`, `email`, `phone`. Aliase wie `Telefonnummer` oder `E-Mail` dürfen nicht
+zusätzlich hinein.
+
+### Die übrigen Angaben sichtbar machen
+
+Alles Weitere wird unter sprechenden Namen mitgeschickt, LeadTable zeigt davon
+aber nur, wofür in der Tabelle ein Feld existiert. In der Lead-Ansicht über
+**„Neues Feld hinzufügen"** anlegen – der Feldname muss **exakt** so heißen:
+
+| Feld | Inhalt |
+|---|---|
+| `Bewerbung` | **die komplette Bewerbung als Klartext** – wer nur ein Feld anlegt, nimmt dieses |
+| `Stelle` | Zerspanungsmechaniker (m/w/d) |
+| `PLZ` | Postleitzahl |
+| `Qualifikation` | Match-Score, z. B. „Top-Match (9/9)" |
+| `Kampagne` | Anzeigen-Variante aus `?v=` |
+| `Wunsch-Kontakt` | Anruf oder WhatsApp |
+| `Frühester Start` | Ab sofort, In 1 Monat, … |
+| `Nachricht` | Freitext des Bewerbers |
+| `Ausbildung` · `Deutschkenntnisse` · `CNC-Erfahrung` · `Führerschein` | die vier Antworten |
 
 ---
 
