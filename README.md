@@ -52,10 +52,15 @@ Aus den gewerteten Fragen entsteht ein Match-Score
 
 Jede Bewerbung geht **doppelt** raus, damit nichts verloren geht:
 
-1. **LeadTable** – als JSON an den generischen Webhook
+1. **LeadTable** – als JSON (`application/json`) an den generischen Webhook
    (`CONFIG.leadWebhookUrl`). Der Token in der URL enthält Tabelle, Kunde und
    Agentur; die Leads landen in
-   `portal.lead-table.com/customer/6a71f059661192ffc3215ed6/table/6a71f064a9408391921a95d1/leads`
+   `portal.lead-table.com/customer/6a71f059661192ffc3215ed6/table/6a71f064a9408391921a95d1/leads`.
+   Scheitert der CORS-Preflight, geht derselbe Datensatz formular-kodiert
+   raus – das löst keinen Preflight aus. Die Feldnamen heißen exakt wie die
+   Spalten in LeadTable (`Name`, `E-Mail`, `Telefonnummer`); zusätzlich läuft
+   die komplette Bewerbung als Klartext in `description` mit, damit auch ohne
+   angelegte Felder nichts verloren geht.
 2. **E-Mail** – über `formsubmit.co` an `CONFIG.leadEmail`
    (inkl. Lebenslauf als Anhang, falls hochgeladen)
 

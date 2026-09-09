@@ -1878,59 +1878,99 @@ function collectPayload(data) {
 // LeadTable: Lead zusätzlich als JSON an den Webhook schicken (best effort).
 // text/plain vermeidet einen CORS-Preflight; Empfänger (LeadTable/Make/Zapier)
 // parsen den Body trotzdem als JSON.
-function postWebhook(data) {
+async function postWebhook(data) {
   const url = CONFIG.leadWebhookUrl;
-  if (!url) return;
+  if (!url) return false;
   const j = state.job;
   const lt = CONFIG.leadTable || {};
   const lead = buildLead(data);
-  // Deutsche Klartext-Keys (für Lesbarkeit) + Standard-Aliase (für automatisches
-  // Field-Mapping in LeadTable/CRM).
+
+  // Vollständige Bewerbung als Klartext. Landet in Beschreibung/Notiz und
+  // enthält alles – auch die Angaben, für die in LeadTable (noch) kein
+  // eigenes Feld angelegt ist.
+  const zusammenfassung = Object.entries(lead)
+    .map(([k, v]) => `${k}: ${v}`)
+    .join("\n");
+
+  // Die Feldnamen müssen exakt so heißen wie die Spalten in LeadTable –
+  // dort sind es "Name", "E-Mail" und "Telefonnummer". Zusätzlich die
+  // üblichen englischen Aliase, falls das Mapping darüber läuft.
   const payload = Object.assign({}, lead, {
+    "Name": data.name,
+    "E-Mail": data.email || "",
+    "Telefonnummer": data.phone,
     name: data.name,
-    phone: data.phone,
     email: data.email || "",
+    phone: data.phone,
+    telefon: data.phone,
     zip: data.plz,
     preferred_contact: data.contactPref || "Anruf",
-    message: lead["Nachricht"] || "",
     job: `${j.title} ${j.gender}`,
     variant: state.variant,
     qualification: lead["Qualifikation"],
     source: CONFIG.quelle,
-    // Ziel-Tabelle in LeadTable (aus dem Portal-Link)
+    // Damit nichts verloren geht, egal welche Felder gemappt sind
+    description: zusammenfassung,
+    message: zusammenfassung,
+    note: zusammenfassung,
     customer_id: lt.customerId || "",
     table_id: lt.tableId || "",
-    leadtable_customer_id: lt.customerId || "",
-    leadtable_table_id: lt.tableId || "",
   });
-  // Antworten zusätzlich mit sauberen Keys (ohne Umlaute/Sonderzeichen), damit sie
-  // sich in LeadTable leicht als eigene Spalten anlegen/mappen lassen.
-  const deumlaut = (s) => String(s).replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss");
-  const slug = (s) => deumlaut(s).toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
+
+  // Antworten zusätzlich mit ASCII-Keys, damit sie sich in LeadTable leicht
+  // als eigene Spalten anlegen lassen.
+  const deumlaut = (x) => String(x).replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss");
+  const slug = (x) => deumlaut(x).toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
   j.questions.forEach((q) => {
     const v = (state.answers[q.short] || {}).label || "";
-    payload[q.short] = v;                     // lesbarer Key = exakt der Feldname zum Anlegen in LeadTable
-    payload["antwort_" + slug(q.short)] = v;  // ASCII-Fallback
+    payload[q.short] = v;
+    payload["antwort_" + slug(q.short)] = v;
   });
   payload["Match-Score"] = lead["Qualifikation"];
   payload["match_score"] = lead["Qualifikation"];
   payload["Wunsch-Kontakt"] = data.contactPref || "Anruf";
   payload["Kampagne"] = state.variant;
-  // Namensdopplung vermeiden: LeadTables Name-Feld sammelt alle Namens-Keys ein.
-  // Nur der eine `name`-Key soll rein – die deutsche Dublette entfernen.
-  delete payload["Name"];
+
+  /* Versand in zwei Stufen.
+     1) application/json – das Format, das LeadTable erwartet. Der Browser
+        schickt dafür einen CORS-Preflight vor; antwortet der Endpoint darauf
+        nicht, wirft fetch und die Anfrage erreicht den Server gar nicht.
+     2) Erst dann als Formular-Kodierung. Die gilt als "einfacher" Content-Type,
+        löst keinen Preflight aus und geht in jedem Fall raus.
+     Stufe 2 läuft nur, wenn Stufe 1 geworfen hat – der Lead kann also nicht
+     doppelt ankommen. */
   try {
-    fetch(url, {
+    const res = await fetch(url, {
       method: "POST",
-      headers: { "Content-Type": "text/plain;charset=UTF-8" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
       keepalive: true,
-    }).catch(() => {});
-  } catch (e) { /* best effort */ }
+    });
+    if (res.ok) return true;
+    console.warn("LeadTable antwortete mit Status", res.status);
+    return false;
+  } catch (e) {
+    console.warn("LeadTable (JSON) nicht erreichbar, versuche Formular-Kodierung:", e);
+  }
+
+  try {
+    const form = new URLSearchParams();
+    Object.entries(payload).forEach(([k, v]) => form.append(k, v == null ? "" : String(v)));
+    await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+      body: form.toString(),
+      mode: "no-cors",
+      keepalive: true,
+    });
+  } catch (e) {
+    console.warn("LeadTable-Versand fehlgeschlagen:", e);
+  }
+  return false;
 }
 
 async function sendLead(data, file) {
-  postWebhook(data); // parallel, blockiert die E-Mail-Zustellung nicht
+  await postWebhook(data); // erst LeadTable, danach die E-Mail als zweiter Weg
   const fd = collectPayload(data);
   const url = `https://formsubmit.co/${CONFIG.leadEmail}`;
 
