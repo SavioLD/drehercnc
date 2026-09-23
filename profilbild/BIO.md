@@ -5,12 +5,30 @@
 Vier Varianten in `export/`, alle 1080×1080. Instagram beschneidet automatisch
 auf einen Kreis – die Bildmarke sitzt deshalb mittig mit Luft zum Rand.
 
+### Zweiter Anlauf – die stärkeren Entwürfe
+
 | Datei | Beschreibung |
 |---|---|
-| `a-tuerkis.png` | **Empfehlung** – weiße Bildmarke auf Markenfläche. Setzt sich im Feed am deutlichsten ab und bleibt bis 32 px erkennbar |
-| `b-weiss.png` | Türkise Marke auf Weiß – am nächsten am Original-Logo, wirkt im Feed aber zurückhaltender |
-| `c-anthrazit.png` | Türkis auf Anthrazit, passend zur dunklen Kopfleiste der Website |
-| `d-mit-wortmarke.png` | Mit „DREHER" darunter. Nur wenn das Profilbild groß gezeigt wird – **ab 64 px ist der Schriftzug nicht mehr lesbar** |
+| `j-gross.png` | **Empfehlung** – Bildmarke formatfüllend. Bleibt bis 32 px unmissverständlich, weil die Marke den ganzen Kreis nutzt statt brav in der Mitte zu sitzen |
+| `e-drehrillen.png` | Konzentrische Drehrillen wie auf einer plangedrehten Stirnfläche. Der charaktervollste Entwurf – das Muster erzählt das Handwerk mit, ohne ein Bild zu brauchen |
+| `i-ring.png` | Weißer Innenring. Gibt dem Profilbild auch auf weißem Untergrund eine klare Kante |
+| `f-kraeftig.png` | Wie A, aber mit dickerem Strich – die sichere, ruhige Lösung |
+
+### Erster Anlauf
+
+| Datei | Beschreibung |
+|---|---|
+| `a-tuerkis.png` | Weiße Bildmarke auf Markenfläche, Strich in Originalstärke |
+| `b-weiss.png` | Türkise Marke auf Weiß – am nächsten am Original-Logo, wirkt im Feed aber zurückhaltend |
+| `c-anthrazit.png` | Türkis auf Anthrazit |
+| `d-mit-wortmarke.png` | Mit „DREHER" darunter – **ab 64 px ist der Schriftzug nicht mehr lesbar** |
+
+### Was nicht funktioniert hat
+
+| Datei | Warum |
+|---|---|
+| `g-werkstatt.png` | Werkstattfoto im Duoton. Bei 170 px noch reizvoll, darunter ein dunkler Fleck – ein Foto verträgt den Kreisbeschnitt auf 32 px nicht |
+| `h-diagonal.png` | Diagonal geteilte Fläche. Der Schnitt liest sich eher als Bildfehler denn als Gestaltung |
 
 Die Bildmarke ist nach der Original-Logodatei neu gezeichnet (offener Kreis =
 das C, darin das N), damit sie bei 1080 px scharf bleibt. Die Vorlage ist mit
