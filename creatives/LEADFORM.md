@@ -44,10 +44,35 @@ Zerspanungsmechaniker (m/w/d) in Balgheim
 
 **Beschreibung**
 
+Meta lässt hier zwischen **Absatz** und **Liste** wählen. Die Liste liest sich
+auf dem Handy besser – vier Zeilen, die sagen, warum man sich bewerben sollte.
+
+*Variante „Liste" – empfohlen*
+
+Einleitungstext:
+```
+Du bist gelernter Zerspanungs- oder Industriemechaniker und kennst dich an CNC-Drehmaschinen aus? Dann dauert deine Bewerbung keine Minute. Das erwartet dich bei uns in Balgheim:
+```
+
+Listenpunkte (je Zeile ein Punkt):
+```
+19 Kollegen statt Konzern – kurze Wege, schnelle Entscheidungen
+Komplexe Teile statt Massenware, auch schwer zerspanbare Werkstoffe
+INDEX-Drehautomaten, Voreinstellgerät und Messplatz direkt daneben
+Regelmäßige Schulungen – auf INDEX schulen wir dich ein
+```
+
+Abschluss:
+```
+Vier kurze Fragen, dann deine Kontaktdaten. Wir melden uns innerhalb von 2 Werktagen.
+```
+
+*Variante „Absatz" – falls die Liste nicht gewünscht ist*
+
 ```
 Du bist gelernter Zerspanungs- oder Industriemechaniker und kennst dich an CNC-Drehmaschinen aus? Dann dauert deine Bewerbung keine Minute.
 
-Wir fertigen in Balgheim Präzisionsdrehteile auf INDEX-Drehautomaten – komplexe Teile statt Massenware, in einem Team von 19.
+Bei uns in Balgheim erwarten dich 19 Kollegen statt Konzern – kurze Wege, Entscheidungen fallen an der Maschine. Dazu komplexe Teile statt Massenware, INDEX-Drehautomaten mit Voreinstellgerät und Messplatz direkt daneben und regelmäßige Schulungen. Auf INDEX schulen wir dich ein.
 
 Vier kurze Fragen, dann deine Kontaktdaten. Wir melden uns innerhalb von 2 Werktagen.
 ```
